@@ -1,0 +1,39 @@
+// variables.less
+
+@brandColorA: #8CC63F;
+@brandColorB: #00A246;
+@brandColorC: #005C46;
+@brandColorD: #66a715;
+
+// Dimensions
+@maxWidth: 1000px; // overall max width
+@correction: 0.5 / @maxWidth * 100 * 1%; // for IE7's rounding errors
+
+@span_1_4: 235px;
+@span_1_3: 320px;
+@globalGutter: 20px;
+@bodyWidthA: (@span_1_4 * 4) + (@globalGutter * 4);
+@bodyWidthB: (@span_1_4 * 3) + (@globalGutter * 3); // pixel value for main content column
+@sidebarWidth: @span_1_4; // pixel value for sidebars
+
+@thumbWidthA: 100px; // just random for now
+@thumbWidthB: @span_1_4;
+
+// Media Query Break Points
+@breakPointA: 320px;
+@breakPointB: 480px;
+@breakPointC: 768px;
+@breakPointD: 1000px;
+
+// Base Typography
+@ffMacmillan: 'macmillan_headlineregular', 'Helvetica Neue', Arial, sans-serif;
+@ffFutura: 'Futura', 'Helvetica Neue', Arial, sans-serif;
+
+@baseFontSize: 16px;
+@baseLineHeight: 22px;
+@baseFontFamily: @ffFutura;
+
+// Base Colors
+@baseFontColor: #333;
+@baseLinkColor: @brandColorD;
+@placeholderColor: #999;

@@ -1,0 +1,523 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"text-",
+				"text-decoration"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"font-",
+				"font-family"
+			],
+			[
+				"li",
+				"li	Tag"
+			],
+			[
+				"pad",
+				"pad	CSS - padding: 0;"
+			],
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"pre",
+				"preventDefault"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"slide",
+				"slideUp"
+			],
+			[
+				"lin",
+				"line-height"
+			],
+			[
+				"bo",
+				"bot	CSS - bottom: 0;"
+			],
+			[
+				"pos",
+				"positionRight"
+			],
+			[
+				"box",
+				"box	CSS - box-sizing: border-box;"
+			],
+			[
+				"outer",
+				"outerWidth"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"trans",
+				"transparent"
+			],
+			[
+				"in",
+				"increment"
+			],
+			[
+				"car",
+				"carouselHero"
+			],
+			[
+				"list",
+				"list-style"
+			],
+			[
+				"caro",
+				"carousels"
+			],
+			[
+				"table-",
+				"table-cell"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/User/grunt.sublime-build",
+	"command_palette":
+	{
+		"height": 380.0,
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"About"
+			]
+		],
+		"width": 528.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Projects/BD/HTML/BD-Layout-Product-Landing-Page.html",
+		"/C/Projects/BD/HTML/BD-Layout-Form.html",
+		"/C/Projects/BD/HTML/_scripts/main.js",
+		"/C/Projects/BD/HTML/_styles/less/header.less",
+		"/C/Projects/BD/HTML/_styles/less/menu.less",
+		"/C/Projects/BD/HTML/_styles/less/contacts.less",
+		"/C/Projects/BD/HTML/_styles/less/tabs.less",
+		"/C/Projects/BD/HTML/_styles/less/content.less",
+		"/C/Projects/BD/HTML/BD-Layout-GeneralContent-3-col.html",
+		"/C/Projects/BD/HTML/BD-Layout-Product-Category-Landing-Page.html",
+		"/C/Projects/BD/HTML/BD-Layout-News.html",
+		"/C/Projects/BD/HTML/_styles/less/utilities.less",
+		"/C/Projects/BD/HTML/_styles/less/footer.less",
+		"/C/Projects/BD/HTML/_styles/less/breadcrumbs.less",
+		"/C/Projects/BD/HTML/_styles/less/promos.less",
+		"/C/Projects/BD/HTML/_styles/less/mixins.less",
+		"/C/Projects/BD/HTML/_styles/less/fonts.less",
+		"/C/Projects/BD/HTML/grunt.js",
+		"/C/Projects/BD/HTML/_scripts/scripts.min.js",
+		"/C/Projects/BD/HTML/BD-Layout-Contact-Page.html",
+		"/C/Projects/BD/HTML/_styles/less/global.less",
+		"/C/Projects/BD/HTML/_styles/less/type.less",
+		"/C/Projects/BD/HTML/_styles/less/carousel.less",
+		"/C/Projects/BD/HTML/_styles/less/variables.less",
+		"/C/Projects/BD/HTML/_styles/less/media.less",
+		"/C/Users/jcashmore/AppData/Local/Temp/promo.less.css",
+		"/C/Projects/BD/HTML/_styles/less/main.less",
+		"/C/Projects/BD/HTML/_scripts/scripts.js",
+		"/C/Projects/BD/HTML/_scripts/plugins/jquery.flexslider.js",
+		"/C/Projects/BD/HTML/_scripts/plugins/jquery.tabs.js",
+		"/C/Projects/BD/HTML/_scripts/lib/modernizr.js",
+		"/C/Projects/Warner_Tridion/html/_Styles/legacy.css",
+		"/C/Projects/BD/HTML/_styles/less/buttons.less",
+		"/C/Projects/BD/HTML/_scripts/plugins/jquery.maxlength.js",
+		"/C/Projects/BD/HTML/_scripts/scripts.min.js.report.txt",
+		"/C/Projects/BD/HTML/_scripts/scripts.closure.js",
+		"/C/Projects/BD/HTML/_scripts/scripts.closure.js.report.txt",
+		"/C/Projects/BD/HTML/_styles/less/news.less",
+		"/C/Projects/BD/HTML/_styles/less/product-location-selector.less",
+		"/C/Projects/BD/HTML/_styles/less/product-banner.less",
+		"/C/Projects/BD/HTML/_styles/main.css",
+		"/C/Projects/BD/HTML/BD-Layout-Homepage-Product.html",
+		"/C/Projects/BD/HTML/BD-Layout-Homepage.html",
+		"/C/Projects/BD/HTML/BD-Layout-Homepage-Regional.html",
+		"/C/Projects/BD/HTML/_styles/less/articles.less",
+		"/C/Projects/BD/HTML/BD-Layout-B.html",
+		"/C/Projects/BD/HTML/BD-Layout-A.html",
+		"/C/Projects/BD/HTML/_styles/less/border-box.less",
+		"/C/Projects/BD/HTML/_scripts/plugins/jquery.columnizer.js",
+		"/C/Projects/BD/HTML/BD-Layout-GeneralContent-2-col-promo.html",
+		"/C/Projects/BD/HTML/_styles/less/layout.less",
+		"/C/Projects/BD/HTML/BD-Layout-GeneralContent-2-col-menu.html",
+		"/C/Projects/BD/HTML/BD-Layout-GeneralContent-2-col-promo-menu.html",
+		"/C/Projects/BD/HTML/images/transparent-png.php",
+		"/C/Projects/BD/HTML/_styles/less/grid.less",
+		"/C/Projects/BD/HTML/BD-Layout-C.html",
+		"/C/Projects/BD/HTML/BD-Layout-D.html",
+		"/C/Projects/BD/HTML/_styles/less/reset.less",
+		"/C/Projects/BD/HTML/_scripts/plugins/_banner.js",
+		"/C/Projects/BD/HTML/_scripts/plugins.js",
+		"/C/Projects/BD/HTML/_styles/less/datepicker.less",
+		"/C/Projects/BD/HTML/_old/mm-external/includes/css/default.css",
+		"/C/Projects/BD/HTML/ftpsync.settings",
+		"/C/Projects/BD/HTML/_scripts/plugins/jQuery.equalHeights.js",
+		"/C/Projects/BD/HTML/sftp-config.json",
+		"/C/Projects/BD/HTML/_styles/less/forms.less",
+		"/C/Projects/BD/HTML/_old/mm-external/aboutbd/index.shtml",
+		"/C/Projects/BD/HTML/_scripts/lib/LAB.js",
+		"/C/Projects/BD/HTML/_styles/main.min.css",
+		"/C/Projects/BD/HTML/_scripts/plugins/css3-multi-column.js",
+		"/C/Projects/BD/HTML/responsive.php",
+		"/C/Projects/BD/HTML/index.php",
+		"/C/Projects/BD/HTML/_old/BD_Investors_2.shtml",
+		"/C/Projects/BD/HTML/_old/mm-external/index.shtml",
+		"/C/Projects/BD/HTML/_BD.sublime-project",
+		"/C/Projects/yara/HTML/YARA_Wheel.html",
+		"/C/Projects/yara/HTML/YARA_Layout-A.html",
+		"/C/Projects/yara/HTML/YARA_Test-hidden.html",
+		"/C/Projects/yara/HTML/_scripts/plugins/jquery.jscrollpane.js",
+		"/C/Projects/yara/HTML/_scripts/plugins.js",
+		"/C/Projects/yara/HTML/YARA_Home.html",
+		"/C/Projects/yara/HTML/_scripts/main.js",
+		"/C/Projects/yara/HTML/_styles/less/content.less",
+		"/C/Projects/yara/HTML/_styles/less/search.less",
+		"/C/Projects/yara/HTML/_styles/tridion.css",
+		"/C/Projects/yara/HTML/_styles/less/mixins.less",
+		"/C/Projects/yara/HTML/YARA_1.0-AgricultureHome.html",
+		"/C/Projects/yara/HTML/_styles/less/blocks.less",
+		"/C/Projects/yara/HTML/_styles/less/cookie-alert.less",
+		"/C/Projects/yara/HTML/_temp/spotlight.json",
+		"/C/Projects/yara/HTML/_styles/main.css",
+		"/c/users/jcashm~1/appdata/local/temp/sublime-svn-1353060357/SVN",
+		"/c/users/jcashm~1/appdata/local/temp/sublime-svn-1353059624/SVN",
+		"/C/Projects/yara/HTML/_styles/less/header.less",
+		"/C/Projects/yara/HTML/_styles/less/carousel.less",
+		"/C/Projects/RCC/html/Celebrity 2012/_styles/less/datepicker.less",
+		"/C/Projects/RCC/html/Celebrity 2012/_scripts/main.js",
+		"/C/Projects/RCC/html/Celebrity 2012/RCC_CelebrityCruises-Dining.html",
+		"/C/Projects/RCC/html/Celebrity 2012/RCC_CelebrityCruises-Grid.html",
+		"/C/Projects/RCC/html/Celebrity 2012/RCC_CelebrityCruises-ImageGallery.html",
+		"/C/Projects/RCC/html/Celebrity 2012/RCC_CelebrityCruises-OurCruises.html",
+		"/C/Projects/RCC/html/Celebrity 2012/RCC_CelebrityCruises-OurDestinations.html",
+		"/C/Projects/RCC/html/Celebrity 2012/RCC_CelebrityCruises-PageTemplate.html",
+		"/C/Projects/RCC/html/Celebrity 2012/RCC_CelebrityCruises-RequestCallBack.html",
+		"/C/Projects/RCC/html/Celebrity 2012/RCC_CelebrityCruises-TuscanGrille.html",
+		"/C/Projects/RCC/html/Celebrity 2012/_styles/less/mixins.less",
+		"/C/Projects/RCC/html/Celebrity 2012/_styles/less/forms.less",
+		"/C/Projects/RCC/html/Celebrity 2012/grunt.js",
+		"/C/Projects/RCC/html/Celebrity 2012/_styles/less/header.less",
+		"/C/Projects/RCC/html/Celebrity 2012/_styles/less/tabs.less",
+		"/C/Projects/RCC/html/Celebrity 2012/_styles/less/global.less",
+		"/C/Projects/RCC/html/Celebrity 2012/_styles/less/promos.less",
+		"/C/Projects/RCC/html/Celebrity 2012/_styles/main.css",
+		"/C/Projects/RCC/html/Celebrity 2012/_styles/less/layout.less",
+		"/C/Projects/RCC/html/Celebrity 2012/_styles/less/main.less",
+		"/C/Projects/RCC/html/Celebrity 2012/_styles/less/footer.less",
+		"/C/Projects/RCC/html/Celebrity 2012/_styles/less/hero.less",
+		"/C/Users/jcashmore/AppData/Roaming/Sublime Text 2/Packages/User/SVN.errors.log",
+		"/C/Projects/RCC/html/Celebrity 2012/_RCC_CelebrityCruises.sublime-project",
+		"/C/Projects/RCC_Projects/Celebrity 2012/HTML/_RCC_CelebrityCruises.sublime-project",
+		"/C/Projects/RCC_Projects/Celebrity 2012/HTML/_styles/less/mixins.less",
+		"/C/Projects/RCC_Projects/Celebrity 2012/HTML/_styles/less/body.less",
+		"/C/Projects/RCC_Projects/Celebrity 2012/HTML/_styles/less/footer.less",
+		"/C/Projects/RCC_Projects/Celebrity 2012/HTML/_styles/less/type.less",
+		"/C/Projects/RCC_Projects/Celebrity 2012/HTML/RCC_CelebrityCruises-Layout-A.html",
+		"/C/Projects/RCC_Projects/Celebrity 2012/HTML_styles/less/header.less",
+		"/C/Projects/RCC_Projects/Celebrity 2012/HTML_styles/less/variables.less",
+		"/C/Projects/RCC_Projects/Celebrity 2012/HTML_styles/less/layout.less"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\Projects\\BD\\HTML,-C:\\Projects\\BD\\HTML\\_old\\*",
+			"C:\\Projects\\BD\\HTML,-C:\\Projects\\BD\\HTML\\_old",
+			"C:\\Projects\\yara\\HTML",
+			"C:\\Projects\\RCC\\html\\Celebrity 2012",
+			"C:\\Projects\\RCC_CelebrityCruises\\_styles\\less",
+			"C:\\Projects\\yara",
+			"C:\\Projects\\ESRC_SocietyToday\\HTML\\v2"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			" article",
+			"article",
+			".section-navigation",
+			".contact",
+			".breadcrumbs",
+			".tabs-sections",
+			"513",
+			"684px",
+			".location-selector",
+			"pagination",
+			".php",
+			".location-current",
+			"baseFontFamilySemiBold",
+			"frut",
+			"url('",
+			".active",
+			"$tabLink",
+			".on",
+			"on",
+			"bind",
+			"form-actions",
+			"class=\"styled-checkbox\"",
+			"radio",
+			"    ",
+			"label",
+			"select-replaced-wrapper",
+			">\n",
+			"inline",
+			"block",
+			"inline",
+			"directionNav",
+			"controlNav",
+			"setupPaging",
+			"controlNavScaffold",
+			"control-paging",
+			"visual",
+			"outl",
+			"url(",
+			"../images",
+			"url(",
+			"3",
+			"#main +",
+			".rgba",
+			";\n",
+			"<small>Unless otherwise noted, BD, BD logo and all other trademarks are property of Becton Dickinson and Company. &copy; 2012 BD</small>",
+			"<img src=\"images/bd-logo.png\" alt=\"\" />",
+			"search-arrow.png",
+			"carousel-list",
+			"#page",
+			"abbr[title]",
+			"abbr",
+			"80px",
+			"nline-example",
+			"overlay-inline-example",
+			"jCalendar ",
+			"column-span",
+			"ul",
+			"			.",
+			"search-filter",
+			"CSS3MultiColumn",
+			"active",
+			"bread",
+			"header-main",
+			"/* Backgrounds",
+			"promo-deafult",
+			"promo-default",
+			".list-nutrients",
+			"link-filter",
+			"list-filters",
+			"Filters",
+			"reinitialise",
+			"overlays",
+			"pane",
+			"link-portal-inner",
+			"link-portal",
+			"');\n",
+			"imagemap",
+			"imagemap-map",
+			"lt-ie10",
+			"imagemap",
+			"console.log",
+			"scrollTables",
+			"hover",
+			"video-iframe",
+			"cookie-dismiss",
+			"ide-text",
+			"hidden",
+			"visuallyhidden",
+			"spotlight-suggestion",
+			"4",
+			"search-filter",
+			"product-search",
+			"table",
+			"figcaption",
+			"list-nutrients",
+			"hide-text",
+			"toggle-nav",
+			"processImage",
+			"block-loaded",
+			"type=\"text\" id=\"departureDate\"",
+			"& ",
+			"100%",
+			"form-small",
+			"sidebar-b",
+			"ltIE9",
+			"IE",
+			"box-s",
+			"box",
+			"promo-subscribe",
+			"search",
+			"console.log",
+			"transparent",
+			"hidd",
+			"vis",
+			"hero",
+			"#main",
+			"rbga",
+			"00AEEF",
+			"modules",
+			"last",
+			"ec",
+			"font-w",
+			"940px",
+			"fanc",
+			"rgba",
+			"10px",
+			"rgba",
+			";\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"url('/_styles/fonts/",
+			"	",
+			"<p><small>Unless otherwise noted, BD, BD logo and all other trademarks are property of Becton Dickinson and Company. &copy; 2012 BD</small></p>",
+			"<img src=\"images/bd-logo.png\" alt=\"\" width=\"237\" height=\"41\" />",
+			"type=\"date\" id=\"departureDate4\"",
+			"type=\"date\" id=\"departureDate3\"",
+			"type=\"date\" id=\"departureDate2\"",
+			"type=\"date\" id=\"departureDate\"",
+			"gallery_610x380.gif",
+			"",
+			"Images/gallery_90x50.gif",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 30.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 149.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"PW_ESRC-ResearchCatalogue.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 311.0,
+	"status_bar_visible": true
+}

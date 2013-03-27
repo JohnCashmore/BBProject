@@ -1,0 +1,75 @@
+/* global.less */
+
+* { -webkit-tap-highlight-color: transparent; }
+
+* { word-wrap: break-word; }
+
+::-webkit-input-placeholder {
+	color: @placeholderColor;
+}
+
+:-moz-placeholder {
+	color: @placeholderColor;
+}
+
+.placeholder {
+	color: @placeholderColor;
+}
+
+:focus {
+	outline: none;
+}
+
+html {
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%; 
+	-ms-text-size-adjust: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	background: #fff;
+	height: 100%;
+}
+
+body {
+	font-size: @baseFontSize;
+	font-family: @baseFontFamily;
+	color: @baseFontColor;
+	line-height: @baseLineHeight;
+}
+
+a {
+	color: @baseLinkColor;
+	text-decoration: none;
+	text-decoration: underline;
+
+	&:hover,
+	&:focus { 
+		text-decoration: none; 
+	}
+}
+
+img {
+	-ms-interpolation-mode: bicubic;
+}
+
+// for monitor width js
+#monitor-width{
+	display: none;
+    width: 320px;
+
+	@media (min-width: @breakPointA) {
+		width: @breakPointA;
+	}
+
+	@media (min-width: @breakPointB) {
+		width: @breakPointB;
+	}
+
+	@media (min-width: @breakPointC) {
+		width: @breakPointC;
+	}
+
+	@media (min-width: @breakPointD) {
+		width: @breakPointD;
+	}
+}

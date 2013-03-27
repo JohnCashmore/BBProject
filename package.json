@@ -1,0 +1,17 @@
+{
+  "name": "bb-project",
+  "preferGlobal": true,
+  "version": "0.3.0",
+  "author": "Building Blocks",
+  "description": "Basic Building Blocks grunt project",
+  "contributors": [ 
+    {
+      "name": "John Cashmore",
+      "email": "j.cashmore@buiulding-blocks.com"
+    } 
+  ],
+  "dependencies" : {
+    "grunt"   :  "0.3.17",
+    "grunt-contrib-less" :  "0.3.2"
+  }
+}
