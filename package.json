@@ -11,7 +11,7 @@
     } 
   ],
   "dependencies" : {
-    "grunt"   :  "0.3.17",
-    "grunt-contrib-less" :  "0.3.2"
+    "grunt"   :  "0.3.x",
+    "grunt-contrib-less" :  "0.3.x"
   }
 }
