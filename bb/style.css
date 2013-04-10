@@ -12,11 +12,11 @@ html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pr
 html { background: #FFFFFF }
 
 body {
-    font-family: 'HelveticaNeueW01-45Ligh', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: Georgia, serif;
     font-size: 16px;
     line-height: 20px;
     padding: 0 20px;
-    color: #555555;
+    color: #000;
     overflow-y: scroll;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: none;
@@ -26,13 +26,15 @@ a,
 a:link,
 a:visited,
 a:focus {
-    color: rgb(238, 87, 44);
+    color: #2056AE;
     text-decoration: none;
+     border-bottom: 1px solid rgba(32,86,174,0);
     }
 
 a:hover {
-    color: rgb(238, 87, 44);
-    text-decoration: underline;
+    color: #2056AE;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(32,86,174,0.2);
     }
 
 b,
@@ -62,14 +64,14 @@ header[role="banner"] .logo {
     }
 
 header[role="banner"] h1 {
-    padding: 35px 0 0 0;
+    padding: 25px 0 0 0;
     float: right;
     font-size: 18px;
     font-weight: normal;
     max-width: 60%;
     letter-spacing: -1px;
     font-weight: bold;
-    font-family: 'ITCLubalinGraphW01-Md', 'Helvetica Neue', Arial, Sans-Serif;
+    font-family: 'Helvetica Neue', Arial, Sans-Serif;
     }
 
 #main {
@@ -86,7 +88,7 @@ h2 {
     clear: both;
     letter-spacing: -1px;
     font-weight: bold;
-    font-family: 'ITCLubalinGraphW01-Md', 'Helvetica Neue', Arial, Sans-Serif;
+    font-family: 'Helvetica Neue', Arial, Sans-Serif;
     }
 
 h2 b { font-weight: bold }
