@@ -2,7 +2,7 @@
   "name": "bb-project",
   "preferGlobal": true,
   "version": "0.3.0",
-  "author": "Building Blocks",
+  "author": "Building Blocks Ltd.",
   "description": "Basic Building Blocks grunt project",
   "contributors": [ 
     {

@@ -1,6 +1,13 @@
 module.exports = function(grunt) {
 
 	grunt.initConfig({
+		pkg: '<json:package.json>',
+		meta: {
+			banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
+				'<%= grunt.template.today("yyyy-mm-dd") %>\n' +
+				'<%= pkg.homepage ? "* " + pkg.homepage + "\n" : "" %>' +
+				'* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>; */'
+		},
 		concat: {
 			plugins: {
 				src: ['_scripts/plugins/*.js'],
@@ -21,7 +28,7 @@ module.exports = function(grunt) {
 				dest: '_scripts/plugins.min.js'
 			},
 			allscripts: {
-				src: '_scripts/scripts.js',
+				src: ['<banner:meta.banner>', '_scripts/scripts.js'],
 				dest: '_scripts/scripts.min.js'
 			}
 		},
