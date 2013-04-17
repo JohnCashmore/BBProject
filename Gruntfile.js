@@ -9,38 +9,34 @@ module.exports = function(grunt) {
 				'* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>; */'
 		},
 		concat: {
+			main: {
+				src: ['_scripts/main/main.js'],
+				dest: '_scripts/dev/main.js'
+			},
 			plugins: {
 				src: ['_scripts/plugins/*.js'],
-				dest: '_scripts/plugins.js'
+				dest: '_scripts/dev/plugins.js'
 			},
-			
 			allscripts: {
 				src: [ '_scripts/plugins.js','_scripts/main.js'],
 				dest: '_scripts/scripts.js'
 			},
 			iescripts: {
 				src: [ '_scripts/libs/nwmatcher.js','_scripts/libs/selectivizr.js','_scripts/libs/respond.js'],
-				dest: '_scripts/ie.js'
+				dest: '_scripts/dev/ie.js'
+
 			}
 		},
 		uglify: {
 			options: {
       			banner: '<%= meta.banner %>'
     		},
-			main: {
-				src: '_scripts/main.js',
-				dest: '_scripts/main.min.js'
-			},
-			plugins: {
-				src: '_scripts/plugins.js',
-				dest: '_scripts/plugins.min.js'
-			},
 			allscripts: {
-				src:  '_scripts/scripts.js',
+				src:  '_scripts/dev/scripts.js',
 				dest: '_scripts/scripts.min.js'
 			},
 			iescripts: {
-				src: '_scripts/ie.js',
+				src: '_scripts/dev/ie.js',
 				dest: '_scripts/ie.min.js'
 			}
 		},
@@ -82,7 +78,7 @@ module.exports = function(grunt) {
 			files: [
 				'_scripts/plugins/*.js',
 				'_styles/**/*.less',
-				'_scripts/main.js',
+				'_scripts/main/main.js',
 				'grunt.js'
 			],
 			tasks: ['jshint', 'less', 'concat', 'uglify']
@@ -90,7 +86,7 @@ module.exports = function(grunt) {
 		// You may wish to trun this off if your having issues fixing the js problems
 		jshint: {
 			all: [
-			'_scripts/main.js',
+			'_scripts/main/main.js',
 			'grunt.js'
 			],
 			options: {
