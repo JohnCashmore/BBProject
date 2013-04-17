@@ -1,11 +1,11 @@
 module.exports = function(grunt) {
 
 	grunt.initConfig({
-		pkg: '<json:package.json>',
+		pkg: grunt.file.readJSON('package.json'),
 		meta: {
 			banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-				'<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-				'<%= pkg.homepage ? "* " + pkg.homepage + "\n" : "" %>' +
+				'<%= grunt.template.today("yyyy-mm-dd") %>\\n' +
+				'<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
 				'* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>; */'
 		},
 		concat: {
@@ -18,7 +18,10 @@ module.exports = function(grunt) {
 				dest: '_scripts/scripts.js'
 			}
 		},
-		min: {
+		uglify: {
+			options: {
+      			banner: '<%= meta.banner %>'
+    		},
 			main: {
 				src: '_scripts/main.js',
 				dest: '_scripts/main.min.js'
@@ -28,7 +31,7 @@ module.exports = function(grunt) {
 				dest: '_scripts/plugins.min.js'
 			},
 			allscripts: {
-				src: ['<banner:meta.banner>', '_scripts/scripts.js'],
+				src:  '_scripts/scripts.js',
 				dest: '_scripts/scripts.min.js'
 			}
 		},
@@ -75,7 +78,12 @@ module.exports = function(grunt) {
 			],
 			tasks: 'less concat min'
 		},
+		// You may wish to trun this off if your having issues fixing the js problems
 		jshint: {
+			all: [
+			'_scripts/main.js',
+			'grunt.js'
+			],
 			options: {
 				curly: true,
 				eqeqeq: true,
@@ -86,19 +94,27 @@ module.exports = function(grunt) {
 				sub: true,
 				undef: true,
 				boss: true,
-				eqnull: true
+				eqnull: true,
+
 			},
 			globals: {
 				exports: true,
-				module: false
+				module: false,
+        		jQuery: false,
+        		 $:false
 			}
-		},
-		uglify: {}
+		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-less');
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+
+
+
 
 	// Default task.
-	grunt.registerTask('default', 'less concat min');
+	grunt.registerTask('default', ['jshint', 'less', 'concat', 'uglify']);
 
 };
