@@ -13,9 +13,14 @@ module.exports = function(grunt) {
 				src: ['_scripts/plugins/*.js'],
 				dest: '_scripts/plugins.js'
 			},
+			
 			allscripts: {
 				src: [ '_scripts/plugins.js','_scripts/main.js'],
 				dest: '_scripts/scripts.js'
+			},
+			iescripts: {
+				src: [ '_scripts/libs/nwmatcher.js','_scripts/libs/selectivizr.js','_scripts/libs/respond.js'],
+				dest: '_scripts/ie.js'
 			}
 		},
 		min: {
@@ -30,6 +35,10 @@ module.exports = function(grunt) {
 			allscripts: {
 				src: ['<banner:meta.banner>', '_scripts/scripts.js'],
 				dest: '_scripts/scripts.min.js'
+			},
+			iescripts: {
+				src: '_scripts/ie.js',
+				dest: '_scripts/ie.min.js'
 			}
 		},
 		less: {
