@@ -82,7 +82,7 @@ module.exports = function(grunt) {
 				'_scripts/main.js',
 				'grunt.js'
 			],
-			tasks: 'less concat min'
+			tasks: ['jshint', 'less', 'concat', 'uglify']
 		},
 		jshint: {
 			options: {
@@ -106,6 +106,15 @@ module.exports = function(grunt) {
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-less');
+<<<<<<< HEAD
+=======
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+
+
+>>>>>>> 0.4
 
 	// Default task.
 	grunt.registerTask('default', 'less concat min');
