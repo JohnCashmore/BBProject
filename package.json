@@ -1,10 +1,10 @@
 {
   "name": "bb-project",
   "preferGlobal": true,
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": "Building Blocks Ltd.",
   "homepage": "http://www.building-blocks.com",
-  "description": "Basic Building Blocks grunt project",
+  "description": "Basic Building Blocks grunt project for grunt v0.4",
   "contributors": [
     {
       "name": "John Cashmore",

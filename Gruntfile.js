@@ -1,3 +1,4 @@
+/*global module */
 module.exports = function(grunt) {
 
 	grunt.initConfig({
@@ -19,7 +20,7 @@ module.exports = function(grunt) {
 			},
 			allscripts: {
 				src: [ '_scripts/plugins.js','_scripts/main.js'],
-				dest: '_scripts/scripts.js'
+				dest: '_scripts/dev/scripts.js'
 			},
 			iescripts: {
 				src: [ '_scripts/libs/nwmatcher.js','_scripts/libs/selectivizr.js','_scripts/libs/respond.js'],
@@ -29,8 +30,8 @@ module.exports = function(grunt) {
 		},
 		uglify: {
 			options: {
-      			banner: '<%= meta.banner %>'
-    		},
+				banner: '<%= meta.banner %>'
+			},
 			allscripts: {
 				src:  '_scripts/dev/scripts.js',
 				dest: '_scripts/scripts.min.js'
@@ -72,7 +73,7 @@ module.exports = function(grunt) {
 				files: {
 					'_styles/fonts.min.css': '_styles/less/fonts.less'
 				}
-			},
+			}
 		},
 		watch: {
 			files: [
@@ -87,7 +88,7 @@ module.exports = function(grunt) {
 		jshint: {
 			all: [
 			'_scripts/main/main.js',
-			'grunt.js'
+			'Gruntfile.js'
 			],
 			options: {
 				curly: true,
@@ -99,14 +100,13 @@ module.exports = function(grunt) {
 				sub: true,
 				undef: true,
 				boss: true,
-				eqnull: true,
-
+				eqnull: true
 			},
 			globals: {
 				exports: true,
 				module: false,
-        		jQuery: false,
-        		 $:false
+				jQuery: false,
+				$:false
 			}
 		}
 	});
