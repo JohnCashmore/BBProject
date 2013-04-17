@@ -5,9 +5,9 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		meta: {
 			banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-				'<%= grunt.template.today("yyyy-mm-dd") %>\\n' +
+				'<%= grunt.template.today("yyyy-mm-dd") + "\\n" %>' +
 				'<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-				'* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>; */'
+				'* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>; */ <%= "\\n" %>'
 		},
 		concat: {
 			main: {
@@ -19,7 +19,7 @@ module.exports = function(grunt) {
 				dest: '_scripts/dev/plugins.js'
 			},
 			allscripts: {
-				src: [ '_scripts/plugins.js','_scripts/main.js'],
+				src: [ '_scripts/dev/plugins.js','_scripts/dev/main.js'],
 				dest: '_scripts/dev/scripts.js'
 			},
 			iescripts: {
