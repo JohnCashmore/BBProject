@@ -8,7 +8,11 @@
   "contributors": [
     {
       "name": "John Cashmore",
-      "email": "j.cashmore@buiulding-blocks.com"
+      "email": "j.cashmore@building-blocks.com"
+    },
+    {
+      "name": "Paul Welsh",
+      "email": "p.welsh@building-blocks.com"
     }
   ],
   "dependencies": {

@@ -12,19 +12,19 @@ module.exports = function(grunt) {
 		concat: {
 			main: {
 				src: ['_scripts/main/main.js'],
-				dest: '_scripts/dev/main.js'
+				dest: '_scripts/_debug/main.js'
 			},
 			plugins: {
 				src: ['_scripts/plugins/*.js'],
-				dest: '_scripts/dev/plugins.js'
+				dest: '_scripts/_debug/plugins.js'
 			},
 			allscripts: {
-				src: [ '_scripts/dev/plugins.js','_scripts/dev/main.js'],
-				dest: '_scripts/dev/scripts.js'
+				src: [ '_scripts/_debug/plugins.js','_scripts/_debug/main.js'],
+				dest: '_scripts/_debug/scripts.js'
 			},
 			iescripts: {
 				src: [ '_scripts/libs/nwmatcher.js','_scripts/libs/selectivizr.js','_scripts/libs/respond.js'],
-				dest: '_scripts/dev/ie.js'
+				dest: '_scripts/_debug/ie.js'
 
 			}
 		},
@@ -33,11 +33,11 @@ module.exports = function(grunt) {
 				banner: '<%= meta.banner %>'
 			},
 			allscripts: {
-				src:  '_scripts/dev/scripts.js',
+				src:  '_scripts/_debug/scripts.js',
 				dest: '_scripts/scripts.min.js'
 			},
 			iescripts: {
-				src: '_scripts/dev/ie.js',
+				src: '_scripts/_debug/ie.js',
 				dest: '_scripts/ie.min.js'
 			}
 		},
