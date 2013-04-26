@@ -9,3 +9,7 @@ Do not edit files in the root of `_scripts/` or `_scripts/_debug` these are gene
 
 This project is for grunt v0.4 if you require the v0.3 version you can access this here:
 [https://github.com/buildingblocks/BBProject/archive/v0.3.zip](https://github.com/buildingblocks/BBProject/archive/v0.3.zip)
+
+
+You can also use our Yeoman generator 
+https://github.com/JohnCashBB/generator-bbproject
