@@ -12,4 +12,4 @@ This project is for grunt v0.4 if you require the v0.3 version you can access th
 
 
 You can also use our Yeoman generator 
-https://github.com/JohnCashBB/generator-bbproject
+https://github.com/buildingblocks/generator-bbproject
