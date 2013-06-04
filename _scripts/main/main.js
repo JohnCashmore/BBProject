@@ -9,16 +9,29 @@
 var mq = {
 
 	$body: $('body'),
+	$window: $(window),
 	$detector: $('#monitor-width'),
+	detectorWidth: 0,
 	// current break point of page
 	currentBreakpoint: 0,
-	previousBrekpoint: 0,
+	previousBreakpoint: 0,
 	// breakpoint variables (should match variables.less)
 	breakPointA: 320,
 	breakPointB: 480,
 	breakPointC: 600,
 	breakPointD: 768,
-	breakPointE: 980,
+	breakPointE: 970,
+	breakPointF: 1250,
+	
+	init : function () {
+		var self = this;
+		
+		mq.monitorWidth();
+		
+		self.$window.on('resize.mq',function(){
+			mq.monitorWidth();
+		});	
+	},
 
 	monitorWidth: function () {
 		var self = this;
@@ -27,12 +40,14 @@ var mq = {
 			self.$body.append('<div id="monitor-width"></div>');
 			self.$detector = $('#monitor-width');
 		}
-		var detectorWidth = self.$detector.width();
+		self.detectorWidth = self.$detector.width();
 
-		if (detectorWidth !== mq.currentBreakpoint) {
+		if (self.detectorWidth !== self.currentBreakpoint) {
 			//a change has occurred so update the comparison variable
-			self.previousBrekpoint = self.currentBreakpoint;
-			self.currentBreakpoint = detectorWidth;
+			self.previousBreakpoint = self.currentBreakpoint;
+			self.currentBreakpoint = self.detectorWidth;
+
+			site.log(self.currentBreakpoint);
 		}
 	}
 };
@@ -55,6 +70,14 @@ var site = {
 		// cache some common variables
 		$window: $(window),
 		$html: $('html'),
+		$body: $('body'),
+		$htmlbody: $('html,body'),
+		$page: $('#page'),
+		$header: $('#header'),
+		$main: $('#main'),
+		$footer: $('#footer'),
+		browserPrefix: null,
+		transitionEnd: 'transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd',
 		// store processing of last component globally
 		processinglastComponent: false
 	},
@@ -77,14 +100,30 @@ var site = {
 	},
 
 	// use for debugging/logging
-	log: function (content) {
+	log : function (content) {
 		if (typeof (console) !== "undefined") {
 			console.log(content);
 		}
 	},
+	
+	htmlEncode : function (value){
+	    if (value) {
+	        return $('<div />').text(value).html();
+	    } else {
+	        return '';
+	    }
+	},
+	
+	htmlDecode : function (value) {
+	    if (value) {
+	        return $('<div />').html(value).text();
+	    } else {
+	        return '';
+	    }
+	},
 
 	// get IE version from classname (acceptable values: 10,9,8 or 7)
-	ltIE : function(version) {
+	ltIE: function(version) {
 		var self = this;
 
 		if(self.settings.$html.hasClass('lt-ie'+version)) {
@@ -92,6 +131,23 @@ var site = {
 		}else{
 			return false;
 		}
+	},
+
+	browserPrefix : function () {
+		var self = this,
+			styles = window.getComputedStyle(document.documentElement, ''),
+			prefix = (Array.prototype.slice.call(styles).join('').match(/-(moz|webkit|ms)-/) || (styles.OLink === '' && ['', 'o']))[1],
+			dom = ('WebKit|Moz|MS|O').match(new RegExp('(' + prefix + ')', 'i'))[1];
+
+		self.settings.browserPrefix = '-' + prefix + '-';
+		/*
+		return {
+			dom: dom,
+			lowercase: prefix,
+			css: '-' + prefix + '-',
+			js: prefix[0].toUpperCase() + prefix.substr(1)
+		};
+		*/
 	},
 
 	// placeholder polyfill
@@ -226,8 +282,7 @@ var site = {
 		// functions to run after resizing
 
 		function resizeFinished() {
-
-			mq.monitorWidth();
+		
 			self.lastComponent(true); // reforce a recalculation of the "last" component
 
 		}
@@ -259,6 +314,6 @@ var site = {
 
 // onReady jQuery function
 $(function () {
-	mq.monitorWidth();
+	mq.init();
 	site.ready();
 });

@@ -1,6 +1,6 @@
 <?php
 
-	$client = "Building Blocks v4";
+	$client = "Client Name - Project";
 
 ?>
 <!DOCTYPE html>
