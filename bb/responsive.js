@@ -1,5 +1,5 @@
 //var defaultURL = 'mattkersley.com'; //<---- CHANGE TO YOUR WEBSITE URL
-var defaultURL =false; //<---- CHANGE TO YOUR WEBSITE URL
+var defaultURL = false; //<---- CHANGE TO YOUR WEBSITE URL
 
 //show loading graphic
 function showLoader(id) {
@@ -28,6 +28,7 @@ function loadPage($frame, url) {
   $('iframe').not($frame).each(function(){showLoader($(this).parent().attr('id'));})
   $('iframe').not($frame).data('loaded', false);
   $('iframe').not($frame).attr('src', url);
+  window.history.pushState(null,null,'?'+url);
 }
 
 $('.frame').each(function(){showLoader($(this).attr('id'))});

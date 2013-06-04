@@ -1,6 +1,6 @@
 <?php
 
-	$client = "Client Name - Project";
+	$client = "Building Blocks v4";
 
 ?>
 <!DOCTYPE html>
@@ -54,7 +54,10 @@
 		<div id="page">
 			<!-- Header  -->
 			<header role="banner">
-				<a href="#" class="logo"><img src="bb/bb_logo.png" alt="Building Blocks" /></a>
+				<a href="#" class="logo">
+					<img class="logo-svg"  src="bb/bb-logo.svg" alt="Building Blocks" width="83" height="50" />
+					<img class="logo-png" src="bb/bb-logo.png" alt="Building Blocks" width="83" height="50" />
+				</a>
 				<h1><?php echo $client ?> - Prototype HTML</h1>
 			</header>
 			<!-- /Header -->

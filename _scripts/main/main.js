@@ -8,7 +8,8 @@
 // watch media query changes
 var mq = {
 
-	bodyObj: $('body'),
+	$body: $('body'),
+	$detector: $('#monitor-width'),
 	// current break point of page
 	currentBreakpoint: 0,
 	previousBrekpoint: 0,
@@ -22,12 +23,11 @@ var mq = {
 	monitorWidth: function () {
 		var self = this;
 
-		var $detector = $('#monitor-width');
-		if (!$detector.length) {
-			self.bodyObj.append('<div id="monitor-width"></div>');
-			$detector = $('#monitor-width');
+		if (!self.$detector.length) {
+			self.$body.append('<div id="monitor-width"></div>');
+			self.$detector = $('#monitor-width');
 		}
-		var detectorWidth = $detector.width();
+		var detectorWidth = self.$detector.width();
 
 		if (detectorWidth !== mq.currentBreakpoint) {
 			//a change has occurred so update the comparison variable
@@ -53,14 +53,8 @@ var site = {
 	// site wide settings
 	settings: {
 		// cache some common variables
-		windowObj: $(window),
-		htmlObj: $('html'),
-		// Use these IE variables as little as possible!
-		IE: $('html').hasClass('ie'),
-		ltIE7: $('html').hasClass('lt-ie7'),
-		ltIE8: $('html').hasClass('lt-ie8'),
-		ltIE9: $('html').hasClass('lt-ie9'),
-		ltIE10: $('html').hasClass('lt-ie10'),
+		$window: $(window),
+		$html: $('html'),
 		// store processing of last component globally
 		processinglastComponent: false
 	},
@@ -86,6 +80,17 @@ var site = {
 	log: function (content) {
 		if (typeof (console) !== "undefined") {
 			console.log(content);
+		}
+	},
+
+	// get IE version from classname (acceptable values: 10,9,8 or 7)
+	ltIE : function(version) {
+		var self = this;
+
+		if(self.settings.$html.hasClass('lt-ie'+version)) {
+			return true;
+		}else{
+			return false;
 		}
 	},
 
@@ -122,7 +127,7 @@ var site = {
 		var self = this;
 
 		var options = {
-			moduleContainerInner: '.body',
+			moduleContainerInner: '.body', //class name of scope
 			module: '[class^="span-"],[class*=" span-"]',
 			lastClass: 'last',
 			ieMarkup: '<div class="clearfloats"></div>'
@@ -213,7 +218,7 @@ var site = {
 		var self = this;
 
 		var resizeTimerID;
-		self.settings.windowObj.on('resize', function () {
+		self.settings.$window.on('resize', function () {
 			clearTimeout(resizeTimerID);
 			resizeTimerID = setTimeout(resizeFinished, 200);
 		});
@@ -246,7 +251,7 @@ var site = {
 		self.resize();
 
 		// window onLoad jQuery function
-		self.settings.windowObj.on('load', function () {
+		self.settings.$window.on('load', function () {
 			site.loaded();
 		});
 	}

@@ -58,10 +58,31 @@ header[role="banner"] {
     float: left;
     }
 
-header[role="banner"] .logo {
+.logo {
     float: left;
-    max-width: 40%;
-    }
+    max-width: 83px;
+}
+
+.logo img {
+	max-width: 100%;
+	height: auto;
+}
+    
+.logo-svg {
+	display: block;
+}
+
+.no-svg .logo-svg {
+	display: none;
+}
+
+.logo-png {
+	display: none;
+}
+
+.no-svg .logo-png {
+	display: block;
+}
 
 header[role="banner"] h1 {
     padding: 25px 0 0 0;
@@ -277,12 +298,7 @@ body.responsive {
 
 @media only screen and (max-width: 660px) {
 
-	header[role="banner"] .logo { width: 150px }
-
-	header[role="banner"] .logo img {
-	    max-width: 100%;
-	    height: auto;
-	    }
+	.logo { width: 150px }
 
 	header[role="banner"] h1 {
 	    clear: both;

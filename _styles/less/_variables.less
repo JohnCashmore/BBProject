@@ -1,39 +1,82 @@
 // variables.less
 
-@brandColorA: #8CC63F;
-@brandColorB: #00A246;
-@brandColorC: #005C46;
-@brandColorD: #66a715;
+// Primary Palette
+@brand-color-a: #ED1C24;
+@brand-color-b: #00A650;
+@brand-color-c: #2056AE;
+@brand-color-d: #FABC09;
+
+// Secondary Palette
+@brand-color-e: #434041;
+@brand-color-f: #747172;
+@brand-color-g: #AEADAD;
+@brand-color-h: #D7D6D6;
 
 // Dimensions
-@maxWidth: 1000px; // overall max width
-@correction: 0.5 / @maxWidth * 100 * 1%; // for IE7's rounding errors
+@max-width: 1200px; // overall max width
+@font-size-html: 100%; 
+@rem-base: 16px; // 100% browser font size
+@vertical-rhythm: 7px; // use @vertical-rhythm*X to keep
 
-@span_1_4: 235px;
-@span_1_3: 320px;
-@globalGutter: 20px;
-@bodyWidthA: (@span_1_4 * 4) + (@globalGutter * 4);
-@bodyWidthB: (@span_1_4 * 3) + (@globalGutter * 3); // pixel value for main content column
-@sidebarWidth: @span_1_4; // pixel value for sidebars
+// Typography
+@font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif: "Georgia Pro", Georgia, Times, serif;
+@font-family-mono: 'Anonymous Pro','Droid Sans Mono','DejaVu Sans Mono',Monaco,Consolas,'Lucida Console',Courier,monospace;
+@font-family-base: @font-family-serif;
 
-@thumbWidthA: 100px; // just random for now
-@thumbWidthB: @span_1_4;
+@font-size-base: 18px; // use .font-size(pxValue) to define font sizes
+@font-size-small: 14px;
+@line-height-base: @vertical-rhythm*4; // 28px
+@line-height-small: @vertical-rhythm*3; // 21px
 
-// Media Query Break Points
-@breakPointA: 320px;
-@breakPointB: 480px;
-@breakPointC: 768px;
-@breakPointD: 1000px;
+// Grid system
+@grid-columns: 24;
+@grid-column-width: 10;
+@grid-gutter-width: 40;
+@grid-total-width: 100%;
+@grid-gridsystem-width: (@grid-column-width*@grid-columns) + (@grid-gutter-width*@grid-columns) * 1px;
+@grid-correction: 0.5 / @max-width * 100 * 1%; //IE7 See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
+@correction: 0.5 / @max-width * 100 * 1%; //IE7 See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
 
-// Base Typography
-@ffMacmillan: 'macmillan_headlineregular', 'Helvetica Neue', Arial, sans-serif;
-@ffFutura: 'Futura', 'Helvetica Neue', Arial, sans-serif;
+// Media Query Break Points (px & em)
+@break-point-a-px: 320px;
+@break-point-a-em-val: ~`parseInt("@{break-point-a-px}", 10) / parseInt("@{rem-base}", 10)`;
+@break-point-a-em: ~"@{break-point-a-em-val}em";
+// Set to -px or -em
+@break-point-a: @break-point-a-em;
 
-@baseFontSize: 16px;
-@baseLineHeight: 22px;
-@baseFontFamily: @ffFutura;
+@break-point-b-px: 480px;
+@break-point-b-em-val: ~`parseInt("@{break-point-b-px}", 10) / parseInt("@{rem-base}", 10)`;
+@break-point-b-em: ~"@{break-point-b-em-val}em";
+// Set to -px or -em
+@break-point-b: @break-point-b-em;
 
-// Base Colors
-@baseFontColor: #333;
-@baseLinkColor: @brandColorD;
-@placeholderColor: #999;
+@break-point-c-px: 600px;
+@break-point-c-em-val: ~`parseInt("@{break-point-c-px}", 10) / parseInt("@{rem-base}", 10)`;
+@break-point-c-em: ~"@{break-point-c-em-val}em";
+// Set to -px or -em
+@break-point-c: @break-point-c-em;
+
+@break-point-d-px: 768px;
+@break-point-d-em-val: ~`parseInt("@{break-point-d-px}", 10) / parseInt("@{rem-base}", 10)`;
+@break-point-d-em: ~"@{break-point-d-em-val}em";
+// Set to -px or -em
+@break-point-d: @break-point-d-em;
+
+@break-point-e-px: 970px;
+@break-point-e-em-val: ~`parseInt("@{break-point-e-px}", 10) / parseInt("@{rem-base}", 10)`;
+@break-point-e-em: ~"@{break-point-e-em-val}em";
+// Set to -px or -em
+@break-point-e: @break-point-e-em;
+
+@break-point-f-px: 1250px;
+@break-point-f-em-val: ~`parseInt("@{break-point-f-px}", 10) / parseInt("@{rem-base}", 10)`;
+@break-point-f-em: ~"@{break-point-f-em-val}em";
+// Set to -px or -em
+@break-point-f: @break-point-f-em;
+
+// Other
+@text-color: #000;
+@input-color-placeholder: #999;
+@link-color: @brand-color-c;
+@link-border-opacity: 0.3;

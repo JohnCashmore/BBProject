@@ -23,7 +23,7 @@ module.exports = function(grunt) {
 				dest: '_scripts/_debug/scripts.js'
 			},
 			iescripts: {
-				src: [ '_scripts/libs/nwmatcher.js','_scripts/libs/selectivizr.js','_scripts/libs/respond.js'],
+				src: [ '_scripts/vendor/nwmatcher.js','_scripts/vendor/selectivizr.js','_scripts/vendor/respond.js'],
 				dest: '_scripts/_debug/ie.js'
 
 			}
@@ -116,8 +116,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-
-
 
 	// Default task.
 	grunt.registerTask('default', ['jshint', 'less', 'concat', 'uglify']);

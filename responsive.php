@@ -73,10 +73,14 @@
 				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="495" height="640"></iframe>
 			</div>
 			<div id="f4" class="frame">
+				<h2>600<b> x 800</b> <span class="small">(small tablet)</span> <img src="bb/loader.gif" /></h2>
+				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="615" height="800"></iframe>
+			</div>
+			<div id="f5" class="frame">
 				<h2>768<b> x 1024</b> <span class="small">(iPad - Portrait)</span> <img src="bb/loader.gif" /></h2>
 				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="783" height="1024"></iframe>
 			</div>
-			<div id="f5" class="frame">
+			<div id="f6" class="frame">
 				<h2>1024<b> x 768</b> <span class="small">(iPad - Landscape)</span> <img src="bb/loader.gif" /></h2>
 				<iframe sandbox="allow-same-origin allow-forms allow-scripts" seamless width="1039" height="768"></iframe>
 			</div>
