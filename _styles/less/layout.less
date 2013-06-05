@@ -1,1 +1,82 @@
 // layout.less
+
+#page {
+	max-width: @max-width;
+	margin: 0 20px;
+	
+	@media (min-width: @break-point-f) {
+		margin: 0 auto;
+	}
+}
+
+#main {
+	width: 100%;
+	overflow: hidden;
+}
+
+[class^="span-"],
+[class*=" span-"] {
+	float: left;
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: @vertical-rhythm*3;
+	
+	img {
+		max-width: 100%;
+		height: auto;
+		vertical-align: top;
+	}
+
+	&.last {
+
+		& + [class^="span-"],
+		& + [class*=" span-"] {
+			clear: both;
+		}
+	}
+
+	&.pull-right {
+		float: right;
+	}
+}
+
+.region-a {
+
+	@region-a-width: @grid-gridsystem-width;
+	@span-1-4: @grid-column-width*3;
+	@span-1-3: @grid-column-width*4;
+	
+	// Grid layout above @break-point-d only
+	@media (min-width: @break-point-d) {
+		position: relative;
+		float: left;
+		.fluid-width(@region-a-width, @region-a-width);
+		
+		.region-inner{
+			position: relative;
+			.fluid-width(@region-a-width + @grid-gutter-width, @region-a-width);
+		}
+		
+		[class^="span-"],
+		[class*=" span-"] {
+			.fluid-marginright(@grid-gutter-width, @region-a-width);
+		}
+
+		// split by 4
+		.span-1-4 {
+			.fluid-width((@grid-column-width*3) + (@grid-gutter-width*2), @region-a-width);
+		}
+
+		.span-2-4 {
+			.fluid-width((@grid-column-width*6) + (@grid-gutter-width*5), @region-a-width);
+		}
+
+		.span-3-4 {
+			.fluid-width((@grid-column-width*9) + (@grid-gutter-width*8), @region-a-width);
+		}
+
+		.span-4-4 {
+			.fluid-width((@grid-column-width*12) + (@grid-gutter-width*11), @region-a-width);
+		}
+	}
+}

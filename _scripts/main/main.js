@@ -183,10 +183,10 @@ var site = {
 		var self = this;
 
 		var options = {
-			moduleContainerInner: '.body', //class name of scope
+			moduleContainerInner: '[class^="region-"],[class*=" region-"]', //class name of scope
 			module: '[class^="span-"],[class*=" span-"]',
 			lastClass: 'last',
-			ieMarkup: '<div class="clearfloats"></div>'
+			ieLastClass: 'span-last-clear'
 		};
 
 		var $moduleContainer = $(options.moduleContainerInner);
@@ -211,21 +211,12 @@ var site = {
 				// jQuery object of the lastComponent within this particular module container
 				var $lastComponent = $(options.module, $thisModuleContainer);
 
-				// init smallest Module variable (start by making it the widdest I can be - sounds odd but you'll see)
-				var smallestModule = moduleContainerWidth;
-
 				// init the module OuterWidth storage var
 				var outerWidth;
-
-				// We need to do this loop of all the lastComponent first to establish which is the smallest
-				$lastComponent.each(function (index) {
-					var $currentModule = $(this);
-					// get current module from the loop's width and store it
-					outerWidth = parseFloat($currentModule.outerWidth(true)).toFixed();
-					if (outerWidth < smallestModule) {
-						smallestModule = Math.floor(outerWidth - 2); // - 2 is a bit of tollerance for percentage blunders in browser
-					}
-				});
+				
+				if (forceBuild && self.ltIE(9)) {
+					$('.'+options.ieLastClass).remove();
+				}
 
 				$lastComponent.each(function (index) {
 
@@ -250,22 +241,21 @@ var site = {
 
 					// if current group is positioned at 0 pixels inside our parent, add class of 'last'
 					// if less than 2 for complications with percentages
-					if (positionRight <= smallestModule) {
+					if (positionRight < 2) {
 						$currentModule.addClass(options.lastClass);
 
 						if (self.settings.ltIE9) {
-							$currentModule.after(options.ieMarkup);
+							$currentModule.after('<div class="'+options.ieLastClass+' clearfloats"></div>');
 						}
 					}
 
 					if (index === ($lastComponent.length - 1)) {
 						self.settings.processinglastComponent = false;
 					}
-
 				});
-
+				
 			});
-
+			
 		} // end existence check
 	},
 
