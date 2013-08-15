@@ -158,6 +158,12 @@
 	width: ~"@{remValue}rem";
 }
 
+.min-width(@pxValue){
+	@remValue: ~`parseInt("@{pxValue}", 10) / parseInt("@{rem-base}", 10)`;
+	min-width: @pxValue;
+	min-width: ~"@{remValue}rem";
+}
+
 .max-width(@pxValue){
 	@remValue: ~`parseInt("@{pxValue}", 10) / parseInt("@{rem-base}", 10)`;
 	max-width: @pxValue;
@@ -362,31 +368,43 @@
 .fluid-width(@target, @context) {
 	width: 100%*(@target/@context);
 	// ie correct formular to prevent
-	*width: (100%*(@target/@context))-@correction;
+	*width: (100%*(@target/@context))-@grid-correction;
 }
 
-.fluid-marginright(@target, @context) {
+.fluid-margin-right(@target, @context) {
 	margin-right: 100%*(@target/@context);
 	// ie correct formular to prevent
-	*margin-right: (100%*(@target/@context))-@correction;
+	*margin-right: (100%*(@target/@context))-@grid-correction;
 }
 
-.fluid-marginleft(@target, @context) {
+.fluid-margin-left(@target, @context) {
 	margin-left: 100%*(@target/@context);
 	// ie correct formular to prevent
-	*margin-left: (100%*(@target/@context))-@correction;
+	*margin-left: (100%*(@target/@context))-@grid-correction;
+}
+
+.fluid-padding-right(@target, @context) {
+	padding-right: 100%*(@target/@context);
+	// ie correct formular to prevent
+	*padding-right: (100%*(@target/@context))-@grid-correction;
+}
+
+.fluid-padding-left(@target, @context) {
+	padding-left: 100%*(@target/@context);
+	// ie correct formular to prevent
+	*padding-left: (100%*(@target/@context))-@grid-correction;
 }
 
 .fluid-right(@target, @context) {
 	right: 100%*(@target/@context);
 	// ie correct formular to prevent
-	*right: (100%*(@target/@context))-@correction;
+	*right: (100%*(@target/@context))-@grid-correction;
 }
 
 .fluid-left(@target, @context) {
 	left: 100%*(@target/@context);
 	// ie correct formular to prevent
-	*left: (100%*(@target/@context))-@correction;
+	*left: (100%*(@target/@context))-@grid-correction;
 }
 
 // new image replacement see: http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
@@ -414,7 +432,7 @@
 // 2nd arg: the total percentage of the space containing space you want them to fill. E.g: 100% of the containing UL.
 .percentage-width(@totalItems: 5, @totalSpace: 100%) {
 	width: @totalSpace/@totalItems;
-	*width: (@totalSpace/@totalItems)-@correction;
+	*width: (@totalSpace/@totalItems)-@grid-correction;
 }
 
 .percentage-minwidth(@totalItems: 5, @totalSpace: 100%) {
@@ -572,11 +590,18 @@
 
 // Transformations
 .transform(@string){
-  -webkit-transform: @string;
-	 -moz-transform: @string;
-	  -ms-transform: @string;
-		-o-transform: @string;
-		   transform: @string;
+	-webkit-transform: @string;
+	   -moz-transform: @string;
+	    -ms-transform: @string;
+		 -o-transform: @string;
+		 	transform: @string;
+}
+.transform-origin(@origin){
+	-webkit-transform-origin: @origin;
+	   -moz-transform-origin: @origin;
+	    -ms-transform-origin: @origin;
+	     -o-transform-origin: @origin;
+		    transform-origin: @origin;
 }
 .rotate(@degrees) {
   -webkit-transform: rotate(@degrees);
@@ -620,6 +645,20 @@
 	   -o-transform: skew(@x, @y);
 		  transform: skew(@x, @y);
 }
+.skewX(@x) {
+  -webkit-transform: skewX(@x);
+	 -moz-transform: skewX(@x);
+	  -ms-transform: skewX(@x);
+	   -o-transform: skewX(@x);
+		  transform: skewX(@x);
+}
+.skewY(@y) {
+  -webkit-transform: skewY(@y);
+	 -moz-transform: skewY(@y);
+	  -ms-transform: skewY(@y);
+	   -o-transform: skewY(@y);
+		  transform: skewY(@y);
+}
 .translate3d(@x, @y, @z) {
   -webkit-transform: translate3d(@x, @y, @z);
 	 -moz-transform: translate3d(@x, @y, @z);
@@ -660,6 +699,20 @@
        -moz-animation-name: @name;
          -o-animation-name: @name;
             animation-name: @name;
+}
+.perspective(@string){
+	-webkit-perspective: @string;
+	   -moz-perspective: @string;
+	    -ms-perspective: @string;
+	     -o-perspective: @string;
+		    perspective: @string;
+}
+.perspective-origin(@origin){
+	-webkit-perspective-origin: @origin;
+	   -moz-perspective-origin: @origin;
+	    -ms-perspective-origin: @origin;
+	     -o-perspective-origin: @origin;
+		    perspective-origin: @origin;
 }
 
 // Backface visibility
@@ -742,6 +795,14 @@
   filter: ~"alpha(opacity=@{opacity})";
 }
 
+.appearance(@appearance){
+	-webkit-appearance: @appearance;
+	   -moz-appearance: @appearance;
+	    -ms-appearance: @appearance;
+		 -o-appearance: @appearance;
+		 	appearance: @appearance;
+}
+
 // Gradients
 #gradient {
   .horizontal(@startColor: #555, @endColor: #333) {
@@ -754,6 +815,10 @@
 	background-image: linear-gradient(left, @startColor, @endColor); // Le standard
 	background-repeat: repeat-x;
 	//filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",@startColor,@endColor)); // IE9 and down
+	
+	.cssgradients &{
+		background-color: transparent;
+	}
   }
   .vertical(@startColor: #555, @endColor: #333, @startColorStop: 0%, @endColorStop: 100%) {
 	background-color: @endColor;
@@ -764,15 +829,10 @@
 	background-image: -o-linear-gradient(top, @startColor @startColorStop, @endColor @endColorStop); // Opera 11.10
 	background-image: linear-gradient(top, @startColor @startColorStop, @endColor @endColorStop); // The standard
 	background-repeat: repeat-x;
-	//filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@startColor,@endColor)); // IE9 and down
-
-	// SVG gradients for IE9
-	.ie9 & {
-		@ieFromColor: ~`"@{startColor}".replace('#','')`;
-		@ieToColor: ~`"@{endColor}".replace('#','')`;
-		@ieFromStop: ~`"@{startColorStop}".replace('%','')`;
-		@ieToStop: ~`"@{endColorStop}".replace('%','')`;
-		 background-image: url('/images/css/gradient-vertical.php?from=@{ieFromColor}&fromStop=@{ieFromStop}&to=@{ieToColor}&toStop=@{ieToStop}'); // IE9
+	//filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@startColor,@endColor)); // IE9 and down	
+	
+	.cssgradients &{
+		background-color: transparent;
 	}
   }
   .directional(@startColor: #555, @endColor: #333, @deg: 45deg) {
