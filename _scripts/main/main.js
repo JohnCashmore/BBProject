@@ -22,15 +22,15 @@ var mq = {
 	breakPointD: 768,
 	breakPointE: 970,
 	breakPointF: 1250,
-	
+
 	init : function () {
 		var self = this;
-		
+
 		mq.monitorWidth();
-		
+
 		self.$window.on('resize.mq',function(){
 			mq.monitorWidth();
-		});	
+		});
 	},
 
 	monitorWidth: function () {
@@ -47,7 +47,7 @@ var mq = {
 			self.previousBreakpoint = self.currentBreakpoint;
 			self.currentBreakpoint = self.detectorWidth;
 
-			site.log(self.currentBreakpoint);
+			console.log(self.currentBreakpoint);
 		}
 	}
 };
@@ -99,27 +99,20 @@ var site = {
 		}
 	},
 
-	// use for debugging/logging
-	log : function (content) {
-		if (typeof (console) !== "undefined") {
-			console.log(content);
+	htmlEncode : function (value){
+		if (value) {
+			return $('<div />').text(value).html();
+		} else {
+			return '';
 		}
 	},
-	
-	htmlEncode : function (value){
-	    if (value) {
-	        return $('<div />').text(value).html();
-	    } else {
-	        return '';
-	    }
-	},
-	
+
 	htmlDecode : function (value) {
-	    if (value) {
-	        return $('<div />').html(value).text();
-	    } else {
-	        return '';
-	    }
+		if (value) {
+			return $('<div />').html(value).text();
+		} else {
+			return '';
+		}
 	},
 
 	// get IE version from classname (acceptable values: 10,9,8 or 7)
@@ -213,7 +206,7 @@ var site = {
 
 				// init the module OuterWidth storage var
 				var outerWidth;
-				
+
 				if (forceBuild && self.ltIE(9)) {
 					$('.'+options.ieLastClass).remove();
 				}
@@ -253,9 +246,9 @@ var site = {
 						self.settings.processinglastComponent = false;
 					}
 				});
-				
+
 			});
-			
+
 		} // end existence check
 	},
 
@@ -272,7 +265,7 @@ var site = {
 		// functions to run after resizing
 
 		function resizeFinished() {
-		
+
 			self.lastComponent(true); // reforce a recalculation of the "last" component
 
 		}
