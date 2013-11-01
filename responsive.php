@@ -15,9 +15,6 @@
 	<link rel="icon" href="bb/favicon.ico" type="image/x-icon" />
 	<link rel="shortcut icon" href="bb/favicon.ico" type="image/x-icon" />
 
-	<!-- Fonts.com -->
-	<link rel="stylesheet" href="http://fast.fonts.com/cssapi/ccdd0b94-9df3-4cbd-bbed-eb52122f887c.css" />
-
 	<!-- Javascript -->
 	<script src="bb/modernizr.js"></script>
 	<script src="bb/selectivizr.js"></script>
@@ -47,7 +44,7 @@
 	<div id="url">
 		<?php if($filelist != ''){ ?>
 		<select id="files">
-			<option value="">Select file to text&hellip;</option>
+			<option value="">Select a file to test&hellip;</option>
 			<?php echo $filelist ?>
 		</select>
 		<div id="options">

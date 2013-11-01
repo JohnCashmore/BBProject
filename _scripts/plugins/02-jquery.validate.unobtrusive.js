@@ -37,7 +37,9 @@
     }
 
     function onError(error, inputElement) {  // 'this' is the form element
-        var container = $(this).find("[data-valmsg-for='" + inputElement[0].name + "']"),
+    	//BB EDIT: Allow messages to be displayed anywhere on the page ( instead of just form element )
+        //var container = $(this).find("[data-valmsg-for='" + inputElement[0].name + "']"),
+        var container = $("[data-valmsg-for='" + inputElement[0].name + "']"),
         	//BB EDIT: Fix https://connect.microsoft.com/VisualStudio/feedback/details/786650/jquery-validate-unobtrusive-js-broken-for-jquery-1-9-and-above
             //replace = $.parseJSON(container.attr("data-valmsg-replace")) !== false;
             replace = container.attr("data-valmsg-replace") && $.parseJSON(container.attr("data-valmsg-replace")) !== false;

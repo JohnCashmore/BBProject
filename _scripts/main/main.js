@@ -4,67 +4,10 @@
 /*global Modernizr */
 /*global clearTimeout */
 /*global setTimeout */
-
-// watch media query changes
-var mq = {
-
-	$body: $('body'),
-	$window: $(window),
-	$detector: $('#monitor-width'),
-	detectorWidth: 0,
-	// current break point of page
-	currentBreakpoint: 0,
-	previousBreakpoint: 0,
-	// breakpoint variables (should match variables.less)
-	breakPointA: 320,
-	breakPointB: 480,
-	breakPointC: 600,
-	breakPointD: 768,
-	breakPointE: 970,
-	breakPointF: 1250,
-
-	init : function () {
-		var self = this;
-
-		mq.monitorWidth();
-
-		self.$window.on('resize.mq',function(){
-			mq.monitorWidth();
-		});
-	},
-
-	monitorWidth: function () {
-		var self = this;
-
-		if (!self.$detector.length) {
-			self.$body.append('<div id="monitor-width"></div>');
-			self.$detector = $('#monitor-width');
-		}
-		self.detectorWidth = self.$detector.width();
-
-		if (self.detectorWidth !== self.currentBreakpoint) {
-			//a change has occurred so update the comparison variable
-			self.previousBreakpoint = self.currentBreakpoint;
-			self.currentBreakpoint = self.detectorWidth;
-
-			console.log(self.currentBreakpoint);
-		}
-	}
-};
-
-// site-wide object for site-wide functions and utilities
-var site = {
-
+// global object for site-wide functions and utilities
+var bb = {
 	// language variables for translation (e.g Next, Previous, Close)
-	language: {
-
-	},
-
-	// extend language in plugins (e.g jQuery.validate)
-	extendLanguages: function () {
-
-	},
-
+	language: {},
 	// site wide settings
 	settings: {
 		// cache some common variables
@@ -76,227 +19,278 @@ var site = {
 		$header: $('#header'),
 		$main: $('#main'),
 		$footer: $('#footer'),
+		// stored URL params (empty to begin with)
+		urlParams: {},
+		// class to use on
+		processedClass: 'processed',
 		browserPrefix: null,
-		transitionEnd: 'transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd',
+		transitionEnd: null,
+		animationEnd: null,
+		transitionAnimationEnd: null,
 		// store processing of last component globally
-		processinglastComponent: false
+		processinglastComponent: false,
+		// breakpoint variables (should match variables.less)
+		breakPointA: 320,
+		breakPointB: 480,
+		breakPointC: 600,
+		breakPointD: 768,
+		breakPointE: 1024,
+		breakPointF: 1200
 	},
-
-	urlParams: {},
-
-	getUrlParams: function () {
-		var self = this,
-			match,
-			pl = /\+/g, // Regex for replacing addition symbol with a space
-			search = /([^&=]+)=?([^&]*)/g,
-			decode = function (s) {
-				return decodeURIComponent(s.replace(pl, " "));
-			},
-			query = window.location.search.substring(1);
-
-		while (match = search.exec(query)) {
-			self.urlParams[decode(match[1])] = decode(match[2]);
+	// watch media query changes	
+	mq: {
+		globalObj: null,
+		$detector: $('#monitor-width'),
+		detectorWidth: 0,
+		// current break point of page
+		currentBreakpoint: 0,
+		previousBreakpoint: 0,
+		monitorWidth: function() {
+			var self = this;
+			if (!self.$detector.length) {
+				self.$detector = $('<div />', {
+					id: '#monitor-width'
+				});
+				self.globalObj.settings.$body.append(self.$detector);
+			}
+			self.detectorWidth = self.$detector.width();
+			if (self.detectorWidth !== self.currentBreakpoint) {
+				//a change has occurred so update the comparison variable
+				self.previousBreakpoint = self.currentBreakpoint;
+				self.currentBreakpoint = self.detectorWidth;
+			}
 		}
 	},
-
-	htmlEncode : function (value){
+	urlParams: {},
+	getUrlParams: function(queryString) {
+		if (queryString) {
+			var params = {},
+				queryStringArray = queryString.split('&');
+			for (var index in queryStringArray) {
+				var query = queryStringArray[index].split('=');
+				params[decodeURIComponent(query[0])] = decodeURIComponent(query[1]);
+			}
+			return params;
+		}
+	},
+	setUrlParams: function() {
+		var self = this;
+		self.urlParams = self.getUrlParams(window.location.search);
+	},
+	// use for debugging/logging
+	log: function(content) {
+		if (typeof(console) !== "undefined") {
+			console.log(content);
+		}
+	},
+	htmlEncode: function(value) {
 		if (value) {
 			return $('<div />').text(value).html();
 		} else {
 			return '';
 		}
 	},
-
-	htmlDecode : function (value) {
+	htmlDecode: function(value) {
 		if (value) {
 			return $('<div />').html(value).text();
 		} else {
 			return '';
 		}
 	},
-
 	// get IE version from classname (acceptable values: 10,9,8 or 7)
 	ltIE: function(version) {
 		var self = this;
-
-		if(self.settings.$html.hasClass('lt-ie'+version)) {
+		if (self.settings.$html.hasClass('lt-ie' + version)) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	},
-
-	browserPrefix : function () {
+	browserPrefix: function() {
 		var self = this,
-			styles = window.getComputedStyle(document.documentElement, ''),
+			styles = window.getComputedStyle(window.document.documentElement, ''),
 			prefix = (Array.prototype.slice.call(styles).join('').match(/-(moz|webkit|ms)-/) || (styles.OLink === '' && ['', 'o']))[1],
 			dom = ('WebKit|Moz|MS|O').match(new RegExp('(' + prefix + ')', 'i'))[1];
-
 		self.settings.browserPrefix = '-' + prefix + '-';
-		/*
-		return {
-			dom: dom,
-			lowercase: prefix,
-			css: '-' + prefix + '-',
-			js: prefix[0].toUpperCase() + prefix.substr(1)
-		};
-		*/
 	},
-
-	// placeholder polyfill
-	placeholders: function () {
-		var self = this;
-
-		if (!Modernizr.input.placeholder) {
-			$('[placeholder]:not([type=password])').focus(function () {
-				var $input = $(this);
-				if ($input.val() === $input.attr('placeholder')) {
-					$input.val('');
-					$input.removeClass('placeholder');
-				}
-			}).blur(function () {
-				var $input = $(this);
-				if ($input.val() === '' || $input.val() === $input.attr('placeholder')) {
-					$input.addClass('placeholder');
-					$input.val($input.attr('placeholder'));
-				}
-			}).blur().parents('form').submit(function () {
-				var $input = $(this);
-				$input.find('[placeholder]').each(function () {
-					if ($input.val() === $input.attr('placeholder')) {
-						$input.val('');
-					}
-				});
-			});
-		}
-	},
-
-	// last component in a row
-	lastComponent: function (forceBuild) {
-		var self = this;
-
-		var options = {
-			moduleContainerInner: '[class^="region-"],[class*=" region-"]', //class name of scope
-			module: '[class^="span-"],[class*=" span-"]',
-			lastClass: 'last',
-			ieLastClass: 'span-last-clear'
+	transitionAnimationEndEvent: function() {
+		var self = this,
+			transition, transitions, animation, animations, element = window.document.createElement('transitionAnimationElement');
+		transitions = {
+			'WebkitTransition': 'webkitTransitionEnd',
+			'MozTransition': 'transitionend',
+			'MSTransition': 'msTransitionEnd',
+			'OTransition': 'oTransitionEnd',
+			'transition': 'transitionend'
 		};
-
-		var $moduleContainer = $(options.moduleContainerInner);
-
-		// if we find a container run code
-		if ($moduleContainer.length > 0 && !self.settings.processinglastComponent) {
-
-			self.settings.processinglastComponent = true;
-
-			if (forceBuild === true) {
-				$(options.module).removeClass(options.lastClass);
+		animations = {
+			'WebkitAnimation': 'webkitAnimationEnd',
+			'MozAnimation': 'animationend',
+			'MSAnimation': 'msAnimationEnd',
+			'OAnimation': 'oAnimationEnd',
+			'animation': 'animationend'
+		};
+		for (transition in transitions) {
+			if (element.style[transition] !== undefined) {
+				self.settings.transitionEnd = transitions[transition];
 			}
-
-			// handle them uniquely via "each" for more than one set of managed module containers on the page
-			$moduleContainer.each(function (index) {
-
-				// ref current container we're going to deal with
-				var $thisModuleContainer = $(this);
-				// get the width of the inner div. So we can parse the space our lastComponent need to occupy
-				var moduleContainerWidth = parseFloat($thisModuleContainer.width()).toFixed();
-
-				// jQuery object of the lastComponent within this particular module container
-				var $lastComponent = $(options.module, $thisModuleContainer);
-
-				// init the module OuterWidth storage var
-				var outerWidth;
-
-				if (forceBuild && self.ltIE(9)) {
-					$('.'+options.ieLastClass).remove();
-				}
-
-				$lastComponent.each(function (index) {
-
-					// ref the current module
-					var $currentModule = $(this);
-
-					// get its outerwidth
-					outerWidth = parseFloat($currentModule.outerWidth(true)).toFixed();
-
-					// webkit returns percentage for the margin, so correct outerWidth to pixels
-					var marginRight = $currentModule.css('margin-right');
-					if (marginRight.substr(marginRight.length - 1, 1) === '%') {
-						var marginRightPercentage = marginRight.substr(0, marginRight.length - 2);
-						//convert to pixels
-						var marginRightPixels = parseInt(Math.floor((moduleContainerWidth * marginRightPercentage) / 100), 10).toFixed();
-						// add margin and width together
-						outerWidth = $currentModule.outerWidth() + parseInt(marginRightPixels, 10);
-					}
-
-					// get position right of the current group
-					var positionRight = moduleContainerWidth - Math.floor(parseInt($currentModule.position().left, 10) + parseInt(outerWidth, 10));
-
-					// if current group is positioned at 0 pixels inside our parent, add class of 'last'
-					// if less than 2 for complications with percentages
-					if (positionRight < 2) {
-						$currentModule.addClass(options.lastClass);
-
-						if (self.settings.ltIE9) {
-							$currentModule.after('<div class="'+options.ieLastClass+' clearfloats"></div>');
-						}
-					}
-
-					if (index === ($lastComponent.length - 1)) {
-						self.settings.processinglastComponent = false;
-					}
-				});
-
-			});
-
-		} // end existence check
+		}
+		// is it null?
+		if (self.settings.transitionEnd === null) {
+			self.settings.transitionEnd = 'noTransitionEnd';
+		}
+		for (animation in animations) {
+			if (element.style[animation] !== undefined) {
+				self.settings.animationEnd = animations[animation];
+			}
+		}
+		// is it null?
+		if (self.settings.animationEnd === null) {
+			self.settings.animationEnd = 'noAnimationEnd';
+		}
+		self.settings.transitionAnimationEnd = (self.settings.transitionEnd + ' ' + self.settings.animationEnd).toString();
 	},
-
-	// reusable site resize function
-	resize: function () {
-		var self = this;
-
-		var resizeTimerID;
-		self.settings.$window.on('resize', function () {
-			clearTimeout(resizeTimerID);
-			resizeTimerID = setTimeout(resizeFinished, 200);
-		});
-
-		// functions to run after resizing
-
-		function resizeFinished() {
-
-			self.lastComponent(true); // reforce a recalculation of the "last" component
-
+	// last component in a row
+	lastComponent: {
+		globalObj: null,
+		$moduleContainers: null,
+		moduleSelector: '.block',
+		lastClass: 'block-last',
+		ieLastClass: 'block-last-clear',
+		$currentModuleContainer: null,
+		processing: false,
+		roundingOffset: 3,
+		init: function() {
+			var self = this;
+			self.$moduleContainers = $('.region-inner');
+			if (!self.$moduleContainers) {
+				return false;
+			}
+			self.startProcessing(false);
+		},
+		stopProcessing: function() {
+			var self = this;
+			console.timeEnd('Processing last components');
+			self.processing = false;
+			return false;
+		},
+		startProcessing: function(forceBuild) {
+			var self = this;
+			console.time('Processing last components');
+			self.processing = true;
+			if (self.processing || self.$moduleContainers.length < 1) {
+				self.stopProcessing();
+			}
+			if (forceBuild) {
+				$(self.moduleSelector).removeClass(self.lastClass);
+				if (self.globalObj.ltIE(8)) {
+					$('.' + self.ieLastClass).remove();
+				}
+			}
+			self.$moduleContainers.each(function(i) {
+				var $moduleContainer = $(this),
+					$modules = $moduleContainer.find(self.moduleSelector),
+					//$modules = $(),
+					modulesLength = $modules.length,
+					moduleContainerWidth = null;
+				if (modulesLength < 1) {
+					self.stopProcessing();
+				}
+				moduleContainerWidth = ($moduleContainer.width() - self.roundingOffset);
+				self.processModules($modules, moduleContainerWidth);
+			});
+		},
+		processModules: function($modules, moduleContainerWidth) {
+			var self = this;
+			if (!$modules || !moduleContainerWidth) {
+				self.stopProcessing();
+			}
+			$modules.each(function(i) {
+				var $module = $(this);
+				if ($module.hasClass('pull-right')) {
+					return true;
+				}
+				var outerWidth = parseInt($module.quickOuterWidth(true), 10);
+				if (outerWidth >= moduleContainerWidth) {
+					self.setLastModule($module);
+					return true;
+				}
+				var positionLeft = parseInt($module.position().left, 10),
+					positionRight = Math.round(moduleContainerWidth - parseInt(positionLeft + outerWidth, 10));
+				if (positionRight > self.roundingOffset) {
+					return true;
+				}
+				self.setLastModule($module);
+			});
+			self.stopProcessing();
+		},
+		setLastModule: function($module) {
+			var self = this;
+			if (!$module) {
+				return false;
+			}
+			$module.addClass(self.lastClass);
+			if (self.globalObj.ltIE(8)) {
+				$module.after('<div />', {
+					'class': self.ieLastClass
+				});
+			}
 		}
 	},
-
-	// reusable site loaded function
-	loaded: function () {
+	// functions to run again when ajax content is loaded
+	ajaxLoaded: function() {
 		var self = this;
-
-		// loaded functions
-		self.placeholders();
+		// init custom
+		self.lastComponent.startProcessing(true);
 	},
-
-	// reusable site ready function
-	ready: function () {
+	// reusable site loaded function
+	loaded: function() {
 		var self = this;
-
-		// init functions
-		self.getUrlParams();
-		self.lastComponent();
-		self.resize();
-
-		// window onLoad jQuery function
-		self.settings.$window.on('load', function () {
-			site.loaded();
+		self.settings.$window.on('load', function() {
+			// init custom
+			// e.g self.lastComponent.startProcessing(true);
 		});
+	},
+	// reusable site resize function
+	resize: {
+		globalObj : this,
+		resizeTimerID : null,
+		init : function () {
+			var self = this;
+			self.globalObj.settings.$window.on('resize.bbResize', function() {
+				clearTimeout(self.resizeTimerID);
+				self.resizeTimerID = setTimeout(self.resizeFinished, 200);
+			});
+		},
+		resizeFinished : function () {
+			var self = this;
+			self.globalObj.lastComponent.startProcessing(true);
+			clearTimeout(self.resizeTimerID);
+		}
+	},
+	setGlobalObj: function() {
+		var self = this;
+		self.mq.globalObj = self;
+		self.lastComponent.globalObj = self;
+		self.resize.globalObj = self;
+	},
+	// reusable site ready function
+	ready: function() {
+		var self = this;
+		// site global objects first
+		self.setGlobalObj();
+		// init required
+		self.mq.monitorWidth();
+		self.browserPrefix();
+		self.transitionAnimationEndEvent();
+		self.setUrlParams();
+		// init custom
+		self.lastComponent.init();
+		// init resize
+		self.resize.init();
+		// init loaded
+		self.loaded();
 	}
 };
-
-// onReady jQuery function
-$(function () {
-	mq.init();
-	site.ready();
-});
+// jQuery onReady
+$(bb.ready());

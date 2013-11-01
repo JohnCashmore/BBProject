@@ -4,7 +4,7 @@
   "version": "0.4.0",
   "author": "Building Blocks Ltd.",
   "homepage": "http://www.building-blocks.com",
-  "description": "Basic Building Blocks grunt project for grunt v0.4",
+  "description": "BBuilding Blocks project template for Grunt.js v0.4",
   "contributors": [
     {
       "name": "John Cashmore",
@@ -25,6 +25,10 @@
     "grunt-init": "~0.2.0",
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-contrib-jshint": "~0.4.3",
-    "grunt-contrib-watch": "~0.3.1"
+    "grunt-contrib-watch": "~0.3.1",
+    "grunt-comment-media-queries": "~0.1.0",
+    "grunt-contrib-cssmin": "~0.6.1",
+    "css-parse": "~1.5.3",
+    "grunt-combine-media-queries": "~1.0.8"
   }
 }

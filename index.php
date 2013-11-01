@@ -16,9 +16,6 @@
 		<link rel="icon" href="bb/favicon.ico" type="image/x-icon" />
 		<link rel="shortcut icon" href="bb/favicon.ico" type="image/x-icon" />
 
-		<!-- Fonts.com -->
-		<link rel="stylesheet" href="http://fast.fonts.com/cssapi/ccdd0b94-9df3-4cbd-bbed-eb52122f887c.css" />
-
 		<!-- Javascript -->
 		<script src="bb/modernizr.js"></script>
 		<script src="bb/selectivizr.js"></script>
@@ -55,7 +52,7 @@
 			<!-- Header  -->
 			<header role="banner">
 				<a href="#" class="logo">
-					<img class="logo-svg"  src="bb/bb-logo.svg" alt="Building Blocks" width="83" height="50" />
+					<img class="logo-svg" src="bb/bb-logo.svg" alt="Building Blocks" width="83" height="50" />
 					<img class="logo-png" src="bb/bb-logo.png" alt="Building Blocks" width="83" height="50" />
 				</a>
 				<h1><?php echo $client ?> - Prototype HTML</h1>

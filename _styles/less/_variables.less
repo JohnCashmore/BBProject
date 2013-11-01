@@ -15,7 +15,7 @@
 // Dimensions
 @max-width: 1200px; // overall max width
 @font-size-html: 100%; 
-@rem-base: 16px; // 100% browser font size
+@rem-base: 16px; // 100% browser default font size
 @vertical-rhythm: 7px; // use @vertical-rhythm*X to keep
 
 // Typography
@@ -33,10 +33,9 @@
 @grid-columns: 12;
 @grid-column-width: 60px;
 @grid-gutter-width: 20px;
-@grid-total-width: 100%;
+@grid-total-width: @max-width;
 @grid-gridsystem-width: (@grid-column-width*@grid-columns) + (@grid-gutter-width*@grid-columns) * 1px;
-@grid-correction: 0.5 / @max-width * 100 * 1%; //IE7 See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
-@correction: 0.5 / @max-width * 100 * 1%; //IE7 See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
+@grid-correction: 0.5 / @grid-total-width * 100 * 1%; // IE7 See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
 
 // Media Query Break Points (px & em)
 @break-point-a-px: 320px;
@@ -63,13 +62,13 @@
 // Set to -px or -em
 @break-point-d: @break-point-d-em;
 
-@break-point-e-px: 970px;
+@break-point-e-px: 1024px;
 @break-point-e-em-val: ~`parseInt("@{break-point-e-px}", 10) / parseInt("@{rem-base}", 10)`;
 @break-point-e-em: ~"@{break-point-e-em-val}em";
 // Set to -px or -em
 @break-point-e: @break-point-e-em;
 
-@break-point-f-px: 1250px;
+@break-point-f-px: 1200px;
 @break-point-f-em-val: ~`parseInt("@{break-point-f-px}", 10) / parseInt("@{rem-base}", 10)`;
 @break-point-f-em: ~"@{break-point-f-em-val}em";
 // Set to -px or -em
@@ -78,5 +77,4 @@
 // Other
 @text-color: #000;
 @input-color-placeholder: #999;
-@link-color: @brand-color-c;
-@link-border-opacity: 0.3;
+@link-color: @brand-color-a;
