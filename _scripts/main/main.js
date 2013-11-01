@@ -61,7 +61,6 @@ var bb = {
 			}
 		}
 	},
-	urlParams: {},
 	getUrlParams: function(queryString) {
 		if (queryString) {
 			var params = {},
@@ -75,7 +74,7 @@ var bb = {
 	},
 	setUrlParams: function() {
 		var self = this;
-		self.urlParams = self.getUrlParams(window.location.search);
+		self.settings.urlParams = self.getUrlParams(window.location.search);
 	},
 	// use for debugging/logging
 	log: function(content) {
@@ -151,7 +150,7 @@ var bb = {
 		self.settings.transitionAnimationEnd = (self.settings.transitionEnd + ' ' + self.settings.animationEnd).toString();
 	},
 	// last component in a row
-	lastComponent: {
+	lastComponent : {
 		globalObj: null,
 		$moduleContainers: null,
 		moduleSelector: '.block',
@@ -237,6 +236,12 @@ var bb = {
 			}
 		}
 	},
+	setGlobalObj: function() {
+		var self = this;
+		self.mq.globalObj = self;
+		self.lastComponent.globalObj = self;
+		self.resize.globalObj = self;
+	},
 	// functions to run again when ajax content is loaded
 	ajaxLoaded: function() {
 		var self = this;
@@ -248,31 +253,31 @@ var bb = {
 		var self = this;
 		self.settings.$window.on('load', function() {
 			// init custom
-			// e.g self.lastComponent.startProcessing(true);
+			// e.g self.myFunction();
 		});
 	},
 	// reusable site resize function
 	resize: {
-		globalObj : this,
-		resizeTimerID : null,
-		init : function () {
+		globalObj: null,
+		resizeTimer: null,
+		init: function() {
 			var self = this;
 			self.globalObj.settings.$window.on('resize.bbResize', function() {
-				clearTimeout(self.resizeTimerID);
-				self.resizeTimerID = setTimeout(self.resizeFinished, 200);
+				self.clearResizeTimer();
+				self.resizeTimer = setTimeout(self.resizeFinished, 200);
 			});
 		},
-		resizeFinished : function () {
+		clearResizeTimer: function() {
 			var self = this;
-			self.globalObj.lastComponent.startProcessing(true);
-			clearTimeout(self.resizeTimerID);
+			if(self.resizeTimer) {
+				clearTimeout(self.resizeTimer);
+			}
+		},
+		resizeFinished: function() {
+			var self = this;
+			bb.lastComponent.startProcessing(true);
+			bb.resize.clearResizeTimer();
 		}
-	},
-	setGlobalObj: function() {
-		var self = this;
-		self.mq.globalObj = self;
-		self.lastComponent.globalObj = self;
-		self.resize.globalObj = self;
 	},
 	// reusable site ready function
 	ready: function() {
@@ -286,10 +291,10 @@ var bb = {
 		self.setUrlParams();
 		// init custom
 		self.lastComponent.init();
-		// init resize
-		self.resize.init();
 		// init loaded
 		self.loaded();
+		// init resize
+		self.resize.init();
 	}
 };
 // jQuery onReady

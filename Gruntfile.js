@@ -100,7 +100,7 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			files: ['_scripts/plugins/*.js', '_styles/**/*.less', '_scripts/main/*.js', 'grunt.js'],
-			tasks: ['less', 'cmq', 'comment-media-queries', 'cssmin', 'concat', 'uglify']
+			tasks: ['jshint', 'concat', 'uglify', 'less', 'cmq', 'comment-media-queries', 'cssmin']
 		},
 		jshint: {
 			all: ['_scripts/main/main.js', 'Gruntfile.js'],
@@ -133,5 +133,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-comment-media-queries');
 	grunt.loadNpmTasks('grunt-combine-media-queries');
 	// Default task.
-	grunt.registerTask('default', ['less', 'cmq', 'comment-media-queries', 'cssmin', 'concat', 'uglify']);
+	grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'less', 'cmq', 'comment-media-queries', 'cssmin']);
 };
