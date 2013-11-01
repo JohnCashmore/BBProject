@@ -4,6 +4,58 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		meta: {
 			banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd") + "\\n" %>' + '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' + '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>; */ <%= "\\n" %>'
+		},		
+		jshint: {
+			all: ['_scripts/main/main.js', 'Gruntfile.js'],
+			options: {
+				curly: true,
+				eqeqeq: true,
+				immed: true,
+				latedef: true,
+				newcap: true,
+				noarg: true,
+				sub: true,
+				undef: true,
+				boss: true,
+				eqnull: true
+			},
+			globals: {
+				exports: true,
+				module: false,
+				jQuery: false,
+				$: false
+			}
+		},
+		concat: {
+			main: {
+				src: ['_scripts/main/main.js'],
+				dest: '_scripts/_debug/main.js'
+			},
+			plugins: {
+				src: ['_scripts/plugins/*.js'],
+				dest: '_scripts/_debug/plugins.js'
+			},
+			allscripts: {
+				src: ['_scripts/_debug/plugins.js', '_scripts/_debug/main.js'],
+				dest: '_scripts/_debug/scripts.js'
+			},
+			iescripts: {
+				src: ['_scripts/vendor/nwmatcher.js', '_scripts/vendor/selectivizr.js'],
+				dest: '_scripts/_debug/ie.js'
+			}
+		},
+		uglify: {
+			options: {
+				banner: '<%= meta.banner %>'
+			},
+			allscripts: {
+				src: '_scripts/_debug/scripts.js',
+				dest: '_scripts/scripts.min.js'
+			},
+			iescripts: {
+				src: '_scripts/_debug/ie.js',
+				dest: '_scripts/ie.min.js'
+			}
 		},
 		less: {
 			main: {
@@ -67,61 +119,9 @@ module.exports = function(grunt) {
 				dest: '_styles/ie.min.css'
 			}
 		},
-		concat: {
-			main: {
-				src: ['_scripts/main/main.js'],
-				dest: '_scripts/_debug/main.js'
-			},
-			plugins: {
-				src: ['_scripts/plugins/*.js'],
-				dest: '_scripts/_debug/plugins.js'
-			},
-			allscripts: {
-				src: ['_scripts/_debug/plugins.js', '_scripts/_debug/main.js'],
-				dest: '_scripts/_debug/scripts.js'
-			},
-			iescripts: {
-				src: ['_scripts/vendor/nwmatcher.js', '_scripts/vendor/selectivizr.js'],
-				dest: '_scripts/_debug/ie.js'
-			}
-		},
-		uglify: {
-			options: {
-				banner: '<%= meta.banner %>'
-			},
-			allscripts: {
-				src: '_scripts/_debug/scripts.js',
-				dest: '_scripts/scripts.min.js'
-			},
-			iescripts: {
-				src: '_scripts/_debug/ie.js',
-				dest: '_scripts/ie.min.js'
-			}
-		},
 		watch: {
 			files: ['_scripts/plugins/*.js', '_styles/**/*.less', '_scripts/main/*.js', 'grunt.js'],
 			tasks: ['jshint', 'concat', 'uglify', 'less', 'cmq', 'comment-media-queries', 'cssmin']
-		},
-		jshint: {
-			all: ['_scripts/main/main.js', 'Gruntfile.js'],
-			options: {
-				curly: true,
-				eqeqeq: true,
-				immed: true,
-				latedef: true,
-				newcap: true,
-				noarg: true,
-				sub: true,
-				undef: true,
-				boss: true,
-				eqnull: true
-			},
-			globals: {
-				exports: true,
-				module: false,
-				jQuery: false,
-				$: false
-			}
 		}
 	});
 	grunt.loadNpmTasks('grunt-contrib-less');
