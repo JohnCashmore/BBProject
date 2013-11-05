@@ -236,17 +236,36 @@ var bb = {
 			}
 		}
 	},
-	setGlobalObj: function() {
-		var self = this;
-		self.mq.globalObj = self;
-		self.lastComponent.globalObj = self;
-		self.resize.globalObj = self;
-	},
 	// functions to run again when ajax content is loaded
 	ajaxLoaded: function() {
 		var self = this;
 		// init custom
 		self.lastComponent.startProcessing(true);
+	},
+	// reusable site resize function
+	resize: {
+		globalObj: null,
+		resizeTimeout: null,
+		init: function() {
+			var self = this;
+			self.globalObj.settings.$window.on('resize.bbResize', function() {
+				self.clearResizeTimeout();
+				self.resizeTimeout = setTimeout(function(){
+					self.resizeFinished();
+				}, 500);
+			});
+		},
+		clearResizeTimeout: function() {
+			var self = this;
+			if(self.resizeTimeout) {
+				clearTimeout(self.resizeTimeout);
+			}
+		},
+		resizeFinished: function() {
+			var self = this;
+			self.globalObj.lastComponent.startProcessing(true);
+			self.clearResizeTimeout();
+		}
 	},
 	// reusable site loaded function
 	loaded: function() {
@@ -256,28 +275,11 @@ var bb = {
 			// e.g self.myFunction();
 		});
 	},
-	// reusable site resize function
-	resize: {
-		globalObj: null,
-		resizeTimer: null,
-		init: function() {
-			var self = this;
-			self.globalObj.settings.$window.on('resize.bbResize', function() {
-				self.clearResizeTimer();
-				self.resizeTimer = setTimeout(self.resizeFinished, 200);
-			});
-		},
-		clearResizeTimer: function() {
-			var self = this;
-			if(self.resizeTimer) {
-				clearTimeout(self.resizeTimer);
-			}
-		},
-		resizeFinished: function() {
-			var self = this;
-			bb.lastComponent.startProcessing(true);
-			bb.resize.clearResizeTimer();
-		}
+	setGlobalObj: function() {
+		var self = this;
+		self.mq.globalObj = self;
+		self.lastComponent.globalObj = self;
+		self.resize.globalObj = self;
 	},
 	// reusable site ready function
 	ready: function() {
