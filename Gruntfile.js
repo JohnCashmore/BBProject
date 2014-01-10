@@ -66,6 +66,17 @@ module.exports = function(grunt) {
 					'_styles/main.css': '_styles/less/_order.less'
 				}
 			},
+			mainDebug: {
+				options: {
+					yuicompress: false,
+					sourceMap: true,
+					sourceMapFilename: '_styles/debug.main.css.map',
+					sourceMapRootpath: '/'
+				},
+				files: {
+					'_styles/debug.main.css': '_styles/less/_order.less'
+				}
+			},
 			fonts: {
 				options: {
 					yuicompress: false
