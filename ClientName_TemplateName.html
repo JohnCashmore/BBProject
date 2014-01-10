@@ -17,7 +17,10 @@
 		<meta name="keywords" content="" />
 
 		<!-- CSS -->
-		<!--[if gt IE 9]><!--><link rel="stylesheet" media="screen" href="_styles/debug.main.min.css" data-youshallnotparse="true" /><!--<![endif]-->
+		<!-- DEV (DO NOT include this in production) -->
+		<!--[if gt IE 9]><!--><link rel="stylesheet" media="screen" href="_styles/debug.main.css" data-youshallnotparse="true" /><!--<![endif]-->
+		<!-- PRODUCTION (DO include this in production) -->
+		<!--[if gt IE 9]><!--><!--<link rel="stylesheet" media="screen" href="_styles/main.min.css" data-youshallnotparse="true" />--><!--<![endif]-->
 		<link rel="stylesheet" media="screen" href="_styles/fonts.min.css" data-youshallnotparse="true" />
 
 		<!-- Feature Detection -->
@@ -36,7 +39,7 @@
 
 			<header id="header" role="banner">
 			
-				<h1 class="logo"><a href=-"#">Client Name</a></h1>
+				<h1 class="logo"><a href="#">Client Name</a></h1>
 				
 				<nav id="navigation" role="navigation">
 				
@@ -173,7 +176,10 @@
 		<script>window.jQuery || document.write('<script src="_scripts/vendor/jquery.js"><\/script>')</script>
 
 		<!-- Combined Scripts -->
+		<!-- DEV (DO NOT include this in production) -->
 		<script src="_scripts/_debug/scripts.js"></script>
+		<!-- PRODUCTION (DO include this in production) -->
+		<!--<script src="_scripts/scripts.min.js"></script>-->
 
 	</body>
 </html>
