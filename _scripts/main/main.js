@@ -60,6 +60,7 @@ $.extend(bb,{
 		self.setGlobalObj();
 		// init required
 		self.mq.monitorWidth();
+		self.rightToLeft();
 		self.browserPrefix();
 		self.transitionAnimationEndEvent();
 		self.setUrlParams();

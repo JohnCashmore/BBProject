@@ -17,6 +17,7 @@ $.extend(bb,{
 		$header: $('#header'),
 		$main: $('#main'),
 		$footer: $('#footer'),
+		rtl: false,
 		// stored URL params (empty to begin with)
 		urlParams: {},
 		// class to use on

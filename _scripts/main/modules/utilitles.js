@@ -94,5 +94,12 @@ $.extend(bb,{
 			self.settings.animationEnd = 'noAnimationEnd';
 		}
 		self.settings.transitionAnimationEnd = (self.settings.transitionEnd + ' ' + self.settings.animationEnd).toString();
+	},
+	rightToLeft: function() {
+		var self = this,
+			direction = self.settings.$html.attr('dir');
+		if(direction === 'rtl') {
+			self.settings.rtl = true;
+		}
 	}
 });
