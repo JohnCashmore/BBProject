@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 			banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd") + "\\n" %>' + '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' + '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>; */ <%= "\\n" %>'
 		},		
 		jshint: {
-			all: ['_scripts/main/main.js', 'Gruntfile.js'],
+			all: ['_scripts/main/modules/*.js', '_scripts/main/main.js', 'Gruntfile.js'],
 			options: {
 				curly: true,
 				eqeqeq: true,
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 		},
 		concat: {
 			main: {
-				src: ['_scripts/main/main.js'],
+				src: ['_scripts/main/modules/*.js', '_scripts/main/main.js'],
 				dest: '_scripts/_debug/main.js'
 			},
 			plugins: {
@@ -120,7 +120,7 @@ module.exports = function(grunt) {
 			}
 		},
 		watch: {
-			files: ['_scripts/plugins/*.js', '_styles/**/*.less', '_scripts/main/*.js', 'grunt.js'],
+			files: ['_scripts/plugins/*.js', '_styles/**/*.less', '_scripts/main/*.js', '_scripts/**/*.js', 'grunt.js'],
 			tasks: ['jshint', 'concat', 'uglify', 'less', 'cmq', 'comment-media-queries', 'cssmin']
 		}
 	});
