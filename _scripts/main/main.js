@@ -14,62 +14,34 @@ $.extend(bb,{
 		// init custom
 		self.lastComponent.startProcessing(true);
 	},
-	// reusable site resize function
-	resize: {
-		globalObj: null,
-		resizeTimeout: null,
-		init: function() {
-			var self = this;
-			self.globalObj.settings.$window.on('resize.bbResize', function() {
-				self.clearResizeTimeout();
-				self.resizeTimeout = setTimeout(function(){
-					self.resizeFinished();
-				}, 500);
-			});
-		},
-		clearResizeTimeout: function() {
-			var self = this;
-			if(self.resizeTimeout) {
-				clearTimeout(self.resizeTimeout);
-			}
-		},
-		resizeFinished: function() {
-			var self = this;
-			self.globalObj.lastComponent.startProcessing(true);
-			self.clearResizeTimeout();
-		}
-	},
 	// reusable site loaded function
 	loaded: function() {
 		var self = this;
 		self.settings.$window.on('load', function() {
 			// init custom
 			// e.g self.myFunction();
+			$.publish('pageLoad');
 		});
 	},
 	setGlobalObj: function() {
 		var self = this;
-		self.mq.globalObj = self;
-		self.lastComponent.globalObj = self;
-		self.resize.globalObj = self;
+		$.publish('setGlobal', self);
 	},
 	// reusable site ready function
 	ready: function() {
 		var self = this;
+
 		// site global objects first
-		self.setGlobalObj();
-		// init required
-		self.mq.monitorWidth();
-		self.rightToLeft();
-		self.browserPrefix();
-		self.transitionAnimationEndEvent();
-		self.setUrlParams();
-		// init custom
-		self.lastComponent.init();
+		self.setGlobalObj();	
 		// init loaded
 		self.loaded();
-		// init resize
-		self.resize.init();
+
+		$.publish('pageReady');
 	}
 });
-$(bb.ready());
+
+
+$(function () {
+	
+	bb.ready();
+});

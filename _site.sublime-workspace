@@ -1,0 +1,594 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"tex",
+				"text-transform"
+			],
+			[
+				"text-",
+				"text-decoration"
+			],
+			[
+				"sli",
+				"slideshow"
+			],
+			[
+				"oc",
+				"opacity"
+			],
+			[
+				"parse",
+				"parseInt"
+			],
+			[
+				"no",
+				"no-repeat"
+			],
+			[
+				"bo",
+				"bor	CSS - border-radius: ;"
+			],
+			[
+				"border-",
+				"border-radius"
+			],
+			[
+				"border",
+				"border-collapse"
+			],
+			[
+				"ac",
+				"activityPlanner"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"col",
+				"colgroup	Tag"
+			],
+			[
+				"font-",
+				"font-family"
+			],
+			[
+				"line-",
+				"line-height"
+			],
+			[
+				"dis",
+				"display"
+			],
+			[
+				"li",
+				"li	Tag"
+			],
+			[
+				"pad",
+				"pad	CSS - padding: 0;"
+			],
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"pre",
+				"preventDefault"
+			],
+			[
+				"slide",
+				"slideUp"
+			],
+			[
+				"lin",
+				"line-height"
+			],
+			[
+				"pos",
+				"positionRight"
+			],
+			[
+				"box",
+				"box	CSS - box-sizing: border-box;"
+			],
+			[
+				"outer",
+				"outerWidth"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"trans",
+				"transparent"
+			],
+			[
+				"in",
+				"increment"
+			],
+			[
+				"car",
+				"carouselHero"
+			],
+			[
+				"list",
+				"list-style"
+			],
+			[
+				"caro",
+				"carousels"
+			],
+			[
+				"table-",
+				"table-cell"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 327.0,
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"html",
+				"Tidy HTML"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"About"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 125.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/johncashmore/GitHub/BBProject/_styles/less/_variables.less",
+		"/Users/johncashmore/GitHub/BBProject/_styles/main.css",
+		"/Users/johncashmore/GitHub/BBProject/package.json",
+		"/Users/johncashmore/GitHub/BBProject/_styles/less/_mixins.less",
+		"/Users/johncashmore/GitHub/BBProject/README.md",
+		"/Users/johncashmore/Sites/GWR/dotCom/trunk/html/_scripts/main/main.js",
+		"/Users/johncashmore/Sites/GWR/dotCom/trunk/html/_styles/less/cta.less",
+		"/Users/johncashmore/Sites/GWR/dotCom/trunk/html/_styles/less/datepicker.less",
+		"/Users/johncashmore/Sites/GWR/dotCom/trunk/html/_scripts/plugins/jquery.numeric.js",
+		"/Users/johncashmore/Sites/GWR/dotCom/trunk/html/_styles/less/_order.less",
+		"/Users/johncashmore/Sites/GWR/dotCom/trunk/html/_styles/main.css",
+		"/Users/johncashmore/Sites/GWR/dotCom/trunk/html/_styles/less/_mixins.less",
+		"/Users/johncashmore/Sites/GWR/dotCom/trunk/html/_styles/less/buttons.less",
+		"/Users/johncashmore/Sites/GWR/dotCom/trunk/html/_styles/less/forms.less",
+		"/Users/johncashmore/Sites/GWR/dotCom/trunk/html/_styles/less/_variables.less",
+		"/Users/johncashmore/Sites/GWR/dotCom/trunk/html/_scripts/plugins/bootstrap-datepicker.js",
+		"/Users/johncashmore/Sites/GWR/dotCom/trunk/html/_styles/less/header.less",
+		"/Users/johncashmore/Sites/Yara/TrunkHTML/YARA_BrochureRequest.html",
+		"/Users/johncashmore/Sites/Yara/TrunkHTML/_scripts/plugins/jquery.validate.js",
+		"/Users/johncashmore/Sites/Yara/TrunkHTML/sftp-config.json",
+		"/Users/johncashmore/Sites/Yara/TrunkHTML/YARA_ConversionCalculator.html",
+		"/Users/johncashmore/Sites/Yara/TrunkHTML/_styles/less/mixins.less",
+		"/Users/johncashmore/Sites/Yara/TrunkHTML/_styles/less/utilities.less",
+		"/Users/johncashmore/Sites/Yara/TrunkHTML/_styles/less/content.less",
+		"/Users/johncashmore/Sites/Yara/TrunkHTML/YARA_1.0-AgricultureHome.html",
+		"/Users/johncashmore/Sites/Yara/TrunkHTML/YARA_MyYara-1.5-SignUp-Step2.html",
+		"/Users/johncashmore/Sites/Yara/TrunkHTML/_scripts/main.js",
+		"/Users/johncashmore/Sites/Yara/TrunkHTML/_scripts/plugins/mathParser.js",
+		"/Users/johncashmore/Sites/Yara/TrunkHTML/YARA_Home.html",
+		"/Users/johncashmore/Sites/Yara/TrunkHTML/grunt.js",
+		"/Users/johncashmore/Sites/Yara/TrunkHTML/_styles/less/variables-cyrillic.less",
+		"/Users/johncashmore/Sites/Yara/TrunkHTML/YARA_Layout-A.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_Production-HealthSafety.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_Layout-A.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/_styles/less/type.less",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YaraCOM/_styles/social.css",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_Dark-Site.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YaraCOM/Yara-VacantPositions.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YaraCOM/Yara-Social.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_ConversionCalculator.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/_styles/less/conversion-calc.less",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_Production-Landing.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/_scripts/main.js",
+		"/Users/JohnCashmore/Sites/Yara/Yara/_styles/less/main.less",
+		"/private/etc/apache2/extra/httpd-vhosts.conf",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_CookieSettings.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/_styles/less/articles.less",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_1B_NewsEvents.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/_scripts/plugins/mathParser.js",
+		"/Users/JohnCashmore/Sites/Yara/Yara/_styles/less/mixins.less",
+		"/Users/JohnCashmore/Sites/Yara/Yara/_scripts/plugins/jquery.numeric.js",
+		"/Users/JohnCashmore/Sites/Yara/Yara/_styles/less/modules.less",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_Layout-adblue.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/package.json",
+		"/Users/JohnCashmore/Sites/Yara/Yara/_styles/less/utilities.less",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_Layout-B.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_Map.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_Modules.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_MyYara-1.5-LogIn.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_MyYara-1.5-MyInterests.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_MyYara-1.5-MyProfile.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_MyYara-1.5-SignUp-Step1.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_MyYara-1.5-SignUp-Step2.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_Overlay-hidden.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_Slider.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_Test-hidden.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_Timeline.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_Wheel.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/bugs/YAR_100257-273.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/bugs/YAR_100257-342.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/bugs/YAR_100257-351.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/bugs/YAR_100257-356.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/bugs/YAR_100257-371.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/bugs/YAR_100257-372.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/bugs/YAR_100257-376.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/bugs/YAR_100257-387.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/bugs/YAR_100257-413.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/bugs/YAR_100257-549.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/bugs/YAR_Content.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/bugs/YAR_EQH.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_0.4-ContactUs.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_1.0-AgricultureHome.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_1.1.2.3-CropNutritionalDeficiency.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_1.2-Knowledge.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_1.3-ProductSection.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_1.3.4-ProductSafetyDataSheets.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_1B_Careers.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_1B_Event.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_1B_FAQs.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_1B_Glossary.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_1B_NewsArticle.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_Articles.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_Banners.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_Blocks.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_Forms.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_GoogleMaps.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_Grid.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/YARA_Home.html",
+		"/Users/JohnCashmore/Sites/Yara/Yara/_styles/less/global.less",
+		"/Users/JohnCashmore/Sites/Yara/Yara/_styles/less/content.less",
+		"/Users/JohnCashmore/Sites/Yara/Yara/_styles/less/layout.less",
+		"/Users/JohnCashmore/Sites/Yara/YaraFI/yara-grass-calc/js/main.js",
+		"/Users/JohnCashmore/Sites/Yara/yara-grass-calc/js/grassplanners.js",
+		"/Users/JohnCashmore/Sites/Yara/yara-grass-calc/yara-grass.sublime-project",
+		"/Users/JohnCashmore/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/JohnCashmore/Library/Application Support/Sublime Text 2/Packages/HtmlTidy/HtmlTidy.sublime-settings",
+		"/Users/JohnCashmore/Sites/butlins/activityplanner/Butlins_ActivityPlanner_PrePlanner.html",
+		"/Users/JohnCashmore/Sites/butlins/activityplanner/_styles/less/pre_planner.less",
+		"/Users/JohnCashmore/Sites/butlins/activityplanner/Butlins_ActivityPlanner_Mybutlins.html",
+		"/Users/JohnCashmore/Sites/butlins/activityplanner/Butlins_ActivityPlanner_ActivityPlanner.html",
+		"/Users/JohnCashmore/Sites/butlins/activityplanner/_scripts/main.js",
+		"/Users/JohnCashmore/Sites/butlins/activityplanner/activities.json",
+		"/Users/JohnCashmore/Sites/butlins/activityplanner/_activityplanner.sublime-workspace",
+		"/Users/johncashmore/Documents/webprojects/Butlins/activityplanner/activities.json",
+		"/Users/johncashmore/Documents/webprojects/Butlins/activityplanner/_styles/less/activity-planner-overlay.less",
+		"/Users/johncashmore/Documents/webprojects/Butlins/activityplanner/Butlins_ActivityPlanner_BookingConfirmation-Modal.html",
+		"/Users/johncashmore/Documents/webprojects/Butlins/activityplanner/_styles/less/booking_summary.less",
+		"/Users/johncashmore/Documents/webprojects/Butlins/activityplanner/_styles/less/activity_group.less",
+		"/Users/johncashmore/Documents/webprojects/Butlins/activityplanner/Butlins_ActivityPlanner_ActivityPlanner.html",
+		"/Users/johncashmore/Documents/webprojects/Butlins/activityplanner/_scripts/main.js",
+		"/Users/johncashmore/Documents/webprojects/Butlins/activityplanner/Butlins_ActivityPlanner_PrePlanner.html",
+		"/Users/johncashmore/Documents/webprojects/Butlins/activityplanner/_styles/less/activity_list.less",
+		"/Users/johncashmore/Documents/webprojects/Butlins/activityplanner/_styles/less/activity_planner.less",
+		"/Users/johncashmore/Documents/webprojects/Butlins/activityplanner/_styles/less/pre_planner.less",
+		"/Users/johncashmore/Documents/webprojects/Butlins/activityplanner/_scripts/plugins/jquery.printElement.js",
+		"/Users/johncashmore/Documents/webprojects/Butlins/activityplanner/_scripts/plugins/handlebars.js",
+		"/Users/johncashmore/Documents/webprojects/Butlins/activityplanner/_styles/less/_variables.less",
+		"/Users/johncashmore/Documents/webprojects/Butlins/activityplanner/_scripts/plugins/jquery-ui-1.9.2.custom.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Users/johncashmore/Sites/Yara/TrunkHTML/_styles/less",
+			"/Users/johncashmore/Sites/Yara/TrunkHTML/_styles",
+			"/Users/johncashmore/Sites/Yara/TrunkHTML/_styles/less",
+			"/Users/JohnCashmore/Sites/Yara/Yara/_styles/less",
+			"/Users/JohnCashmore/Sites/Yara/Yara",
+			"C:\\Projects\\BD\\HTML,-C:\\Projects\\BD\\HTML\\_old\\*",
+			"C:\\Projects\\BD\\HTML,-C:\\Projects\\BD\\HTML\\_old",
+			"C:\\Projects\\yara\\HTML",
+			"C:\\Projects\\RCC\\html\\Celebrity 2012",
+			"C:\\Projects\\RCC_CelebrityCruises\\_styles\\less",
+			"C:\\Projects\\yara",
+			"C:\\Projects\\ESRC_SocietyToday\\HTML\\v2"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"rem",
+			"font",
+			"trophy",
+			"hover",
+			"icon-settings",
+			"form",
+			"max",
+			".form",
+			"console",
+			"vali",
+			"link-portal",
+			"abs",
+			".body-copy",
+			"href",
+			" src=\"/",
+			" href=\"/",
+			"infomation",
+			").</",
+			"sidebar-a",
+			"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no\" />",
+			">\n",
+			";\n",
+			".link ",
+			".link",
+			"src=\"/",
+			"href=\"/",
+			"overlaylo",
+			"loca",
+			"redi",
+			";\n",
+			".on('",
+			".ap",
+			"+",
+			"existingConstructor",
+			"();\n",
+			"var self = this;\n\n	    	$.getJSON('activities.json', function(data) {\n				self.$listContainer.html(self.listTemplate(data));\n			});\n	    }",
+			"display",
+			"html",
+			"box-siz",
+			"overlay",
+			"30px",
+			"mq.",
+			"activies",
+			" \n",
+			"fff",
+			";\n",
+			">\n",
+			"sup",
+			"super",
+			";\n",
+			"h2",
+			"10px",
+			"h2",
+			"src=\"http://www.butlins.com//",
+			"src=\"/",
+			"WebResource",
+			"href=\"/",
+			"http://www.butlins.com//",
+			"href=\"/",
+			"src=\"/",
+			" article",
+			"article",
+			".section-navigation",
+			".contact",
+			".breadcrumbs",
+			".tabs-sections",
+			"513",
+			"684px",
+			".location-selector",
+			"pagination",
+			".php",
+			".location-current",
+			"baseFontFamilySemiBold",
+			"frut",
+			"url('",
+			".active",
+			"$tabLink",
+			".on",
+			"on",
+			"bind",
+			"form-actions",
+			"class=\"styled-checkbox\"",
+			"radio",
+			"    ",
+			"label",
+			"select-replaced-wrapper",
+			">\n",
+			"inline",
+			"block",
+			"inline",
+			"directionNav",
+			"controlNav",
+			"setupPaging",
+			"controlNavScaffold",
+			"control-paging",
+			"visual",
+			"outl",
+			"url(",
+			"../images",
+			"url(",
+			"3",
+			"#main +",
+			".rgba",
+			";\n",
+			"<small>Unless otherwise noted, BD, BD logo and all other trademarks are property of Becton Dickinson and Company. &copy; 2012 BD</small>",
+			"<img src=\"images/bd-logo.png\" alt=\"\" />",
+			"search-arrow.png",
+			"carousel-list",
+			"#page",
+			"abbr[title]",
+			"abbr",
+			"80px",
+			"nline-example",
+			"overlay-inline-example",
+			"jCalendar ",
+			"column-span",
+			"ul",
+			"			.",
+			"search-filter",
+			"CSS3MultiColumn",
+			"active",
+			"bread",
+			"header-main",
+			"/* Backgrounds",
+			"promo-deafult",
+			"promo-default",
+			".list-nutrients",
+			"link-filter"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			" src=\"http://www.yara.com/",
+			" href=\"http://www.yara.com/",
+			"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />",
+			"src=\"http://www.yara.fi/",
+			"href=\"http://www.yara.fi/",
+			"activities",
+			"src=\"//",
+			"src=\"http://www.butlins.com/",
+			"href=\"http://www.butlins.com/",
+			"//",
+			"href=\"http://www.butlins.com/",
+			"src=\"http://www.butlins.com/",
+			"url('/_styles/fonts/",
+			"	",
+			"<p><small>Unless otherwise noted, BD, BD logo and all other trademarks are property of Becton Dickinson and Company. &copy; 2012 BD</small></p>",
+			"<img src=\"images/bd-logo.png\" alt=\"\" width=\"237\" height=\"41\" />",
+			"type=\"date\" id=\"departureDate4\"",
+			"type=\"date\" id=\"departureDate3\"",
+			"type=\"date\" id=\"departureDate2\"",
+			"type=\"date\" id=\"departureDate\"",
+			"gallery_610x380.gif",
+			"",
+			"Images/gallery_90x50.gif",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 30.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"project": "_site.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"PW_ESRC-ResearchCatalogue.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 239.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

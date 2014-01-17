@@ -103,3 +103,9 @@ $.extend(bb,{
 		}
 	}
 });
+$.subscribe('pageReady', function () {		
+	bb.rightToLeft();
+	bb.browserPrefix();
+	bb.transitionAnimationEndEvent();
+	bb.setUrlParams();
+});

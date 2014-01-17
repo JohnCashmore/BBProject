@@ -15,6 +15,10 @@ $.extend(bb,{
 		// current break point of page
 		currentBreakpoint: 0,
 		previousBreakpoint: 0,
+		setGlobal: function (globalObj) {
+			var self = this;
+			self.globalObj = globalObj;
+		},
 		monitorWidth: function() {
 			var self = this;
 			if (!self.$detector.length) {
@@ -31,4 +35,10 @@ $.extend(bb,{
 			}
 		}
 	}
+});
+$.subscribe('setGlobal', function (e, globalObj) {	
+	bb.mq.setGlobal(globalObj);
+});
+$.subscribe('pageReady', function () {	
+	bb.mq.monitorWidth();
 });

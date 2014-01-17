@@ -131,7 +131,7 @@ module.exports = function(grunt) {
 			}
 		},
 		watch: {
-			files: ['_scripts/plugins/*.js', '_styles/**/*.less', '_scripts/main/*.js', '_scripts/**/*.js', 'grunt.js'],
+			files: ['_scripts/plugins/*.js', '_styles/**/*.less', '_scripts/main/*.js', '_scripts/main/modules/*.js', 'grunt.js'],
 			tasks: ['jshint', 'concat', 'uglify', 'less', 'cmq', 'comment-media-queries', 'cssmin']
 		}
 	});

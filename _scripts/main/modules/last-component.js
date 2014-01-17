@@ -17,6 +17,10 @@ $.extend(bb,{
 		$currentModuleContainer: null,
 		processing: false,
 		roundingOffset: 3,
+		setGlobal: function (globalObj) {
+			var self = this;
+			self.globalObj = globalObj;
+		},
 		init: function() {
 			var self = this;
 			self.$moduleContainers = $('.region-inner');
@@ -94,4 +98,14 @@ $.extend(bb,{
 			}
 		}
 	}
+});
+$.subscribe('setGlobal', function (e, globalObj) {	
+	bb.lastComponent.setGlobal(globalObj);
+});
+$.subscribe('pageReady', function () {		
+	// init custom
+	bb.lastComponent.init();	
+});
+$.subscribe('resizeFinish', function () {		
+	bb.lastComponent.startProcessing(true);	
 });

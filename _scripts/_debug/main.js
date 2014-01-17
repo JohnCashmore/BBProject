@@ -28,6 +28,7 @@ $.extend(bb,{
 		$header: $('#header'),
 		$main: $('#main'),
 		$footer: $('#footer'),
+		rtl: false,
 		// stored URL params (empty to begin with)
 		urlParams: {},
 		// class to use on
@@ -66,6 +67,10 @@ $.extend(bb,{
 		$currentModuleContainer: null,
 		processing: false,
 		roundingOffset: 3,
+		setGlobal: function (globalObj) {
+			var self = this;
+			self.globalObj = globalObj;
+		},
 		init: function() {
 			var self = this;
 			self.$moduleContainers = $('.region-inner');
@@ -144,6 +149,17 @@ $.extend(bb,{
 		}
 	}
 });
+$.subscribe('setGlobal', function (e, globalObj) {	
+	bb.lastComponent.setGlobal(globalObj);
+});
+$.subscribe('pageReady', function () {		
+	// init custom
+	bb.lastComponent.init();	
+});
+$.subscribe('resizeFinish', function () {		
+	bb.lastComponent.startProcessing(true);	
+});
+
 /*global $:false */
 /*global window */
 /*global console */
@@ -161,6 +177,10 @@ $.extend(bb,{
 		// current break point of page
 		currentBreakpoint: 0,
 		previousBreakpoint: 0,
+		setGlobal: function (globalObj) {
+			var self = this;
+			self.globalObj = globalObj;
+		},
 		monitorWidth: function() {
 			var self = this;
 			if (!self.$detector.length) {
@@ -178,6 +198,60 @@ $.extend(bb,{
 		}
 	}
 });
+$.subscribe('setGlobal', function (e, globalObj) {	
+	bb.mq.setGlobal(globalObj);
+});
+$.subscribe('pageReady', function () {	
+	bb.mq.monitorWidth();
+});
+
+/*global $:false */
+/*global window */
+/*global console */
+/*global Modernizr */
+/*global clearTimeout */
+/*global setTimeout */
+/*global bb:true */
+var bb = bb ? bb : {};
+$.extend(bb,{
+	// reusable site resize function
+	resize: {
+		globalObj: null,
+		resizeTimeout: null,
+		setGlobal: function (globalObj) {
+			var self = this;
+			self.globalObj = globalObj;
+		},
+		init: function() {
+			var self = this;
+			self.globalObj.settings.$window.on('resize.bbResize', function() {
+				self.clearResizeTimeout();
+				self.resizeTimeout = setTimeout(function(){
+					self.resizeFinished();
+				}, 500);
+			});
+		},
+		clearResizeTimeout: function() {
+			var self = this;
+			if(self.resizeTimeout) {
+				clearTimeout(self.resizeTimeout);
+			}
+		},
+		resizeFinished: function() {
+			var self = this;
+			
+			self.clearResizeTimeout();
+			$.publish('resizeFinish');
+		}
+	}
+});
+$.subscribe('setGlobal', function (e, globalObj) {	
+	bb.resize.setGlobal(globalObj);
+});
+$.subscribe('pageReady', function () {	
+	bb.resize.init();
+});
+
 /*global $:false */
 /*global window */
 /*global console */
@@ -274,7 +348,20 @@ $.extend(bb,{
 			self.settings.animationEnd = 'noAnimationEnd';
 		}
 		self.settings.transitionAnimationEnd = (self.settings.transitionEnd + ' ' + self.settings.animationEnd).toString();
+	},
+	rightToLeft: function() {
+		var self = this,
+			direction = self.settings.$html.attr('dir');
+		if(direction === 'rtl') {
+			self.settings.rtl = true;
+		}
 	}
+});
+$.subscribe('pageReady', function () {		
+	bb.rightToLeft();
+	bb.browserPrefix();
+	bb.transitionAnimationEndEvent();
+	bb.setUrlParams();
 });
 /*global $:false */
 /*global window */
@@ -292,61 +379,34 @@ $.extend(bb,{
 		// init custom
 		self.lastComponent.startProcessing(true);
 	},
-	// reusable site resize function
-	resize: {
-		globalObj: null,
-		resizeTimeout: null,
-		init: function() {
-			var self = this;
-			self.globalObj.settings.$window.on('resize.bbResize', function() {
-				self.clearResizeTimeout();
-				self.resizeTimeout = setTimeout(function(){
-					self.resizeFinished();
-				}, 500);
-			});
-		},
-		clearResizeTimeout: function() {
-			var self = this;
-			if(self.resizeTimeout) {
-				clearTimeout(self.resizeTimeout);
-			}
-		},
-		resizeFinished: function() {
-			var self = this;
-			self.globalObj.lastComponent.startProcessing(true);
-			self.clearResizeTimeout();
-		}
-	},
 	// reusable site loaded function
 	loaded: function() {
 		var self = this;
 		self.settings.$window.on('load', function() {
 			// init custom
 			// e.g self.myFunction();
+			$.publish('pageLoad');
 		});
 	},
 	setGlobalObj: function() {
 		var self = this;
-		self.mq.globalObj = self;
-		self.lastComponent.globalObj = self;
-		self.resize.globalObj = self;
+		$.publish('setGlobal', self);
 	},
 	// reusable site ready function
 	ready: function() {
 		var self = this;
+
 		// site global objects first
-		self.setGlobalObj();
-		// init required
-		self.mq.monitorWidth();
-		self.browserPrefix();
-		self.transitionAnimationEndEvent();
-		self.setUrlParams();
-		// init custom
-		self.lastComponent.init();
+		self.setGlobalObj();	
 		// init loaded
 		self.loaded();
-		// init resize
-		self.resize.init();
+
+		$.publish('pageReady');
 	}
 });
-$(bb.ready());
+
+
+$(function () {
+	
+	bb.ready();
+});
